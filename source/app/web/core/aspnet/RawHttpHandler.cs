@@ -1,6 +1,7 @@
 ﻿using System.Web;
+using app.web.core.stubs;
 
-namespace app.web.core
+namespace app.web.core.aspnet
 {
   public class RawHttpHandler : IHttpHandler
   {
@@ -13,6 +14,10 @@ namespace app.web.core
       this.request_factory = request_factory;
     }
 
+    public RawHttpHandler() : this(new FrontController(), new StubRequestFactory())
+    {
+    }
+
     public void ProcessRequest(HttpContext context)
     {
       var request = request_factory.create_request_from(context);
@@ -21,8 +26,7 @@ namespace app.web.core
 
     public bool IsReusable
     {
-      get{ return true;}
+      get { return true; }
     }
   }
-
 }

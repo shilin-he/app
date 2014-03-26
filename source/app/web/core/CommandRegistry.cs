@@ -1,20 +1,28 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using app.web.core.stubs;
 
 namespace app.web.core
 {
   public class CommandRegistry : IFindCommandsToProcessRequests
   {
-      private readonly IEnumerable<IProcessOneRequest> all_commands;
+    IEnumerable<IProcessOneRequest> all_commands;
+    ICreateASpecialCaseWhenACommandIsNotFound missing_command_factory;
 
-      public CommandRegistry(IEnumerable<IProcessOneRequest> all_commands)
-      {
-          this.all_commands = all_commands;
-      }
+    public CommandRegistry(IEnumerable<IProcessOneRequest> all_commands, ICreateASpecialCaseWhenACommandIsNotFound missing_command_factory)
+    {
+      this.all_commands = all_commands;
+      this.missing_command_factory = missing_command_factory;
+    }
 
-      public IProcessOneRequest get_command_that_can_process(IProvideDetailsAboutARequest request)
-      {
-          return all_commands.First(x => x.can_process(request));
-      }
+    public CommandRegistry():this(new StubSetOfCommands(), StubSpecialCaseHandler.missing_handler)
+    {
+    }
+
+    public IProcessOneRequest get_command_that_can_process(IProvideDetailsAboutARequest request)
+    {
+      var result = all_commands.FirstOrDefault(x => x.can_process(request));
+      return result ?? missing_command_factory(request);
+    }
   }
 }

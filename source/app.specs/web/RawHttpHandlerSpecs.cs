@@ -1,6 +1,7 @@
 ﻿ using System.Web;
  using app.specs.utility;
  using app.web.core;
+ using app.web.core.aspnet;
  using Machine.Specifications;
  using developwithpassion.specifications.rhinomocks;
  using developwithpassion.specifications.extensions;
@@ -16,7 +17,6 @@ namespace app.specs.web
         
     }
 
-   
     public class when_processing_an_http_context   : concern
     {
       Establish c = () =>

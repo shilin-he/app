@@ -118,6 +118,8 @@
     <Compile Include="web\CommandRegistrySpecs.cs" />
     <Compile Include="web\FrontControllerSpecs.cs" />
     <Compile Include="web\RawHttpHandlerSpecs.cs" />
+    <Compile Include="web\ViewTheMainDepartmentsInTheStoreSpecs.cs" />
+    <Compile Include="web\WebCommandSpecs.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

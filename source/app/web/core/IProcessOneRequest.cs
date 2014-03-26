@@ -1,8 +1,7 @@
 ﻿namespace app.web.core
 {
-  public interface IProcessOneRequest
+  public interface IProcessOneRequest : IImplementAUserStory
   {
-    void process(IProvideDetailsAboutARequest request);
     bool can_process(IProvideDetailsAboutARequest request);
   }
 }

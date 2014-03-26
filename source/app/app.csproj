@@ -79,16 +79,29 @@
   <ItemGroup>
     <Compile Include="Calculator.cs" />
     <Compile Include="ICalculate.cs" />
+    <Compile Include="web\application\catalogbrowsing\DepartmentLineItem.cs" />
+    <Compile Include="web\application\catalogbrowsing\IFindDepartments.cs" />
+    <Compile Include="web\application\catalogbrowsing\stubs\StubDepartments.cs" />
+    <Compile Include="web\application\catalogbrowsing\ViewTheMainDepartmentsInTheStore.cs" />
     <Compile Include="web\core\CommandRegistry.cs" />
     <Compile Include="web\core\FrontController.cs" />
     <Compile Include="web\core\ICreateARequest.cs" />
     <Compile Include="web\core\ICreateASpecialCaseWhenACommandIsNotFound.cs" />
+    <Compile Include="web\core\IDisplayInformation.cs" />
     <Compile Include="web\core\IFindCommandsToProcessRequests.cs" />
+    <Compile Include="web\core\IImplementAUserStory.cs" />
+    <Compile Include="web\core\IMatchARequest.cs" />
     <Compile Include="web\core\IProcessOneRequest.cs" />
     <Compile Include="web\core\IProcessWebRequests .cs" />
     <Compile Include="web\core\IProvideDetailsAboutARequest.cs" />
-    <Compile Include="web\core\RawHttpHandler.cs" />
+    <Compile Include="web\core\aspnet\RawHttpHandler.cs" />
+    <Compile Include="web\core\stubs\StubDisplayEngine.cs" />
+    <Compile Include="web\core\stubs\StubRequestFactory.cs" />
+    <Compile Include="web\core\stubs\StubSetOfCommands.cs" />
+    <Compile Include="web\core\stubs\StubSpecialCaseHandler.cs" />
+    <Compile Include="web\core\WebCommand.cs" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

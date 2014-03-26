@@ -48,7 +48,8 @@ namespace app.specs.web
       {
         Establish c = () =>
         {
-          all_commands = Enumerable.Range(1, 100).Select(x => fake.an<IProcessOneRequest>()).ToList();
+          all_commands = Enumerable.Range(1, 100).Select(x => fake.an
+            <IProcessOneRequest>()).ToList();
           special_case = fake.an<IProcessOneRequest>();
           request = fake.an<IProvideDetailsAboutARequest>();
           depends.on<IEnumerable<IProcessOneRequest>>(all_commands);
