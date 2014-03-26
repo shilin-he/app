@@ -7,42 +7,43 @@
 
 namespace app.specs.web
 {  
-  [Subject(typeof(ViewProductsInADepartment))]  
-  public class ViewProductsInADepartmentSpecs
+  [Subject(typeof(ViewAgain))]  
+  public class ViewAgainSpecs
   {
     public abstract class concern : Observes<IImplementAUserStory,
-      ViewProductsInADepartment>
+      ViewAgain>
     {
         
     }
 
+   
     public class when_run : concern
     {
       Establish c = () =>
       {
         request = fake.an<IProvideDetailsAboutARequest>();
-        products = depends.on<IFindProducts>();
         selected_department = new DepartmentLineItem();
+        departments = depends.on<IFindDepartments>();
         display_engine = depends.on<IDisplayInformation>();
-        products_in_department = new List<ProductLineItem>
+        departments_in_the_department = new List<DepartmentLineItem>
         {
-          new ProductLineItem()
+          new DepartmentLineItem()
         };
 
         request.setup(x => x.map<DepartmentLineItem>()).Return(selected_department);
-        products.setup(x => x.get_the_products_in_the_department(selected_department)).Return(products_in_department);
+        departments.setup(x => x.get_departments_in(selected_department)).Return(departments_in_the_department);
       };
 
       Because b = () =>
         sut.process(request);
 
-      It display_products_in_the_department = () =>
-        display_engine.received(x => x.display(products_in_department));
+      It display_departments_in_the_department = () =>
+        display_engine.received(x => x.display(departments_in_the_department));
 
-      static IFindProducts products;
+      static IFindDepartments departments;
       static IProvideDetailsAboutARequest request;
       static IDisplayInformation display_engine;
-      static IEnumerable<ProductLineItem> products_in_department;
+      static IEnumerable<DepartmentLineItem> departments_in_the_department;
       static DepartmentLineItem selected_department;
     }
   }

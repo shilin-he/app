@@ -10,8 +10,12 @@ namespace app.web.core.aspnet.stubs
     {
       var views = new Dictionary<Type, string>
       {
-        {typeof(IEnumerable<DepartmentLineItem>), "~/views/DepartmentBrowser.aspx"}
+        {typeof(IEnumerable<DepartmentLineItem>), "~/views/DepartmentBrowser.aspx"},
+        {typeof(IEnumerable<ProductLineItem>), "~/views/ProductBrowser.aspx"}
       };
+
+      if  (! views.ContainsKey(typeof(ReportModel)))
+        throw new Exception(string.Format("There is no view setup to display {0}", typeof(ReportModel).Name));
 
       return views[typeof(ReportModel)];
     }

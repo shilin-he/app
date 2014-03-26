@@ -7,11 +7,11 @@
 
 namespace app.specs.web
 {  
-  [Subject(typeof(ViewProductsInADepartment))]  
+  [Subject(typeof(ViewDepartmentsInADepartment))]  
   public class ViewDepartmentsInADepartmentSpecs
   {
     public abstract class concern : Observes<IImplementAUserStory,
-      ViewProductsInADepartment>
+      ViewDepartmentsInADepartment>
     {
         
     }

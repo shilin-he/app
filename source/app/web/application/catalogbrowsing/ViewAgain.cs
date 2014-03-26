@@ -4,25 +4,25 @@ using app.web.core.aspnet;
 
 namespace app.web.application.catalogbrowsing
 {
-  public class ViewProductsInADepartment : IImplementAUserStory
+  public class ViewAgain : IImplementAUserStory
   {
     IDisplayInformation display_engine;
-    IFindProducts products;
+    IFindDepartments departments;
 
-    public ViewProductsInADepartment(IDisplayInformation display_engine, IFindProducts products)
+    public ViewAgain(IDisplayInformation display_engine, IFindDepartments departments)
     {
       this.display_engine = display_engine;
-      this.products = products;
+      this.departments = departments;
     }
 
-    public ViewProductsInADepartment() : this(new WebFormDisplayEngine(),
+    public ViewAgain() : this(new WebFormDisplayEngine(),
       new StubCatalog())
     {
     }
 
     public void process(IProvideDetailsAboutARequest request)
     {
-      var results = products.get_the_products_in_the_department(request.map<DepartmentLineItem>());
+      var results = departments.get_departments_in(request.map<DepartmentLineItem>());
       display_engine.display(results);
     }
   }
