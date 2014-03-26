@@ -79,11 +79,13 @@
   <ItemGroup>
     <Compile Include="Calculator.cs" />
     <Compile Include="ICalculate.cs" />
+    <Compile Include="web\application\catalogbrowsing\IFindProducts.cs" />
     <Compile Include="web\application\catalogbrowsing\DepartmentLineItem.cs" />
     <Compile Include="web\application\catalogbrowsing\IFindDepartments.cs" />
     <Compile Include="web\application\catalogbrowsing\stubs\StubDepartments.cs" />
-    <Compile Include="web\application\catalogbrowsing\ViewDepartmentsInADepartment.cs" />
+    <Compile Include="web\application\catalogbrowsing\ViewProductsInADepartment.cs" />
     <Compile Include="web\application\catalogbrowsing\ViewTheMainDepartmentsInTheStore.cs" />
+    <Compile Include="web\application\catalogbrowsing\ProductLineItem.cs" />
     <Compile Include="web\core\aspnet\ICreateAView.cs" />
     <Compile Include="web\core\aspnet\ICreateHandlers.cs" />
     <Compile Include="web\core\aspnet\IDisplayA.cs">

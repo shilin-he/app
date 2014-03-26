@@ -7,8 +7,8 @@
 
 namespace app.specs.web
 {  
-  [Subject(typeof(ViewProductsInADepartment))]  
-  public class ViewDepartmentsInADepartmentSpecs
+  [Subject(typeof(ViewProductsInADepartmentSpecs))]  
+  public class ViewProductsInADepartmentSpecs
   {
     public abstract class concern : Observes<IImplementAUserStory,
       ViewProductsInADepartment>
@@ -24,6 +24,7 @@ namespace app.specs.web
         request = fake.an<IProvideDetailsAboutARequest>();
         selected_department = new DepartmentLineItem();
         departments = depends.on<IFindDepartments>();
+        products = depends.on<IFindProducts>();
         display_engine = depends.on<IDisplayInformation>();
         departments_in_the_department = new List<DepartmentLineItem>
         {
@@ -41,6 +42,7 @@ namespace app.specs.web
         display_engine.received(x => x.display(departments_in_the_department));
 
       static IFindDepartments departments;
+      static IFindProducts products;
       static IProvideDetailsAboutARequest request;
       static IDisplayInformation display_engine;
       static IEnumerable<DepartmentLineItem> departments_in_the_department;

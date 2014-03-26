@@ -3,9 +3,9 @@ using System.Linq;
 
 namespace app.web.application.catalogbrowsing.stubs
 {
-  public class StubProducts : IFindProducts
+  public class StubDepartments : IFindDepartments
   {
-    public IEnumerable<ProductLineItem> get_the_main_departments()
+    public IEnumerable<DepartmentLineItem> get_the_main_departments()
     {
       return Enumerable.Range(1, 100).Select(x => new DepartmentLineItem{name = x.ToString("Department 0")});
     }

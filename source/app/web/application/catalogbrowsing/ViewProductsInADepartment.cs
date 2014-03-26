@@ -5,18 +5,18 @@ using app.web.core.stubs;
 
 namespace app.web.application.catalogbrowsing
 {
-  public class ViewDepartmentsInADepartment: IImplementAUserStory
+  public class ViewProductsInADepartment: IImplementAUserStory
   {
     IDisplayInformation display_engine;
     IFindDepartments departments;
 
-    public ViewDepartmentsInADepartment(IDisplayInformation display_engine, IFindDepartments departments)
+    public ViewProductsInADepartment(IDisplayInformation display_engine, IFindDepartments departments)
     {
       this.display_engine = display_engine;
       this.departments = departments;
     }
 
-    public ViewDepartmentsInADepartment():this(new WebFormDisplayEngine(),
+    public ViewProductsInADepartment():this(new WebFormDisplayEngine(),
       new StubDepartments() )
     {
     }
