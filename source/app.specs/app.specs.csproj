@@ -116,6 +116,7 @@
     <Compile Include="CalculatorSpecs.cs" />
     <Compile Include="utility\ObjectFactory.cs" />
     <Compile Include="web\CommandRegistrySpecs.cs" />
+    <Compile Include="web\ViewAgainSpecs.cs" />
     <Compile Include="web\FrontControllerSpecs.cs" />
     <Compile Include="web\RawHttpHandlerSpecs.cs" />
     <Compile Include="web\ReportViewFactorySpecs.cs" />

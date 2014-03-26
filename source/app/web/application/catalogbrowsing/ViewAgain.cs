@@ -4,18 +4,18 @@ using app.web.core.aspnet;
 
 namespace app.web.application.catalogbrowsing
 {
-  public class ViewDepartmentsInADepartment : IImplementAUserStory
+  public class ViewAgain : IImplementAUserStory
   {
     IDisplayInformation display_engine;
     IFindDepartments departments;
 
-    public ViewDepartmentsInADepartment(IDisplayInformation display_engine, IFindDepartments departments)
+    public ViewAgain(IDisplayInformation display_engine, IFindDepartments departments)
     {
       this.display_engine = display_engine;
       this.departments = departments;
     }
 
-    public ViewDepartmentsInADepartment() : this(new WebFormDisplayEngine(),
+    public ViewAgain() : this(new WebFormDisplayEngine(),
       new StubCatalog())
     {
     }

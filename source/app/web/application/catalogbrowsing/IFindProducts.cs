@@ -4,6 +4,6 @@ namespace app.web.application.catalogbrowsing
 {
   public interface IFindProducts
   {
-    IEnumerable<ProductLineItem> find_products_in(DepartmentLineItem the_department);
+    IEnumerable<ProductLineItem> get_the_products_in_the_department(DepartmentLineItem department);
   }
 }

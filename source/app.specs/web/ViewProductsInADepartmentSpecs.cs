@@ -5,7 +5,6 @@
  using developwithpassion.specifications.rhinomocks;
  using developwithpassion.specifications.extensions;
  using Rhino.Mocks.Constraints;
-
 namespace app.specs.web
 {  
   [Subject(typeof(ViewProductsInADepartment))]  
@@ -16,7 +15,6 @@ namespace app.specs.web
     {
         
     }
-   
     public class when_run : concern
     {
       Establish c = () =>
@@ -31,7 +29,7 @@ namespace app.specs.web
         request.setup(x => x.map<DepartmentLineItem>()).Return(the_department);
         display_engine = depends.on<IDisplayInformation>();
         products = depends.on<IFindProducts>();
-        products.setup(x => x.find_products_in(the_department)).Return(the_products);
+        products.setup(x => x.get_the_products_in_the_department(the_department)).Return(the_products);
       };
 
       Because b = () =>
