@@ -125,13 +125,6 @@
     <Content Include="scripts\jquery-1.3.2.js" />
     <Content Include="views\App.master" />
     <None Include="images\Thumbs.db" />
-    <Content Include="web.config" />
-    <None Include="web.Debug.config">
-      <DependentUpon>web.config</DependentUpon>
-    </None>
-    <None Include="web.Release.config">
-      <DependentUpon>web.config</DependentUpon>
-    </None>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Properties\" />

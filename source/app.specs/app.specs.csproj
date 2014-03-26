@@ -113,7 +113,16 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="MessageGeneratorSpecs.cs" />
+    <Compile Include="CalculatorSpecs.cs" />
+    <Compile Include="utility\ObjectFactory.cs" />
+    <Compile Include="web\CommandRegistrySpecs.cs" />
+    <Compile Include="web\FrontControllerSpecs.cs" />
+    <Compile Include="web\RawHttpHandlerSpecs.cs" />
+    <Compile Include="web\ReportViewFactorySpecs.cs" />
+    <Compile Include="web\ViewDepartmentsInADepartmentSpecs.cs" />
+    <Compile Include="web\ViewTheMainDepartmentsInTheStoreSpecs.cs" />
+    <Compile Include="web\WebCommandSpecs.cs" />
+    <Compile Include="web\WebFormDisplayEngineSpecs.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
@@ -124,7 +133,8 @@
   </Target>
   -->
   <PropertyGroup>
-    <PostBuildEvent>cd $(SolutionDir)
+    <PostBuildEvent>
+cd $(SolutionDir)
 rake copy_config_files</PostBuildEvent>
   </PropertyGroup>
 </Project>
