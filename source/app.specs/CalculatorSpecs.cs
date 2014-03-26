@@ -33,7 +33,6 @@ namespace app.specs
           result = sut.add(2, 3);
 
         //Assert
-
         It opens_a_connection_to_the_database = () =>
           connection.received(x => x.Open());
 
