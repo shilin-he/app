@@ -120,6 +120,7 @@
     <Compile Include="web\RawHttpHandlerSpecs.cs" />
     <Compile Include="web\ReportViewFactorySpecs.cs" />
     <Compile Include="web\ViewDepartmentsInADepartmentSpecs.cs" />
+    <Compile Include="web\ViewProductsInADepartmentSpecs.cs" />
     <Compile Include="web\ViewTheMainDepartmentsInTheStoreSpecs.cs" />
     <Compile Include="web\WebCommandSpecs.cs" />
     <Compile Include="web\WebFormDisplayEngineSpecs.cs" />
