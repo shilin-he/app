@@ -6,45 +6,41 @@
  using developwithpassion.specifications.extensions;
 
 namespace app.specs.web
-{  
-  [Subject(typeof(ViewAgain))]  
-  public class ViewAgainSpecs
-  {
-    public abstract class concern : Observes<IImplementAUserStory,
-      ViewAgain>
+{
+    [Subject(typeof (ViewAgain<>))]
+    public class ViewAgainSpecs
     {
-        
-    }
-
-   
-    public class when_run : concern
-    {
-      Establish c = () =>
-      {
-        request = fake.an<IProvideDetailsAboutARequest>();
-        selected_department = new DepartmentLineItem();
-        departments = depends.on<IFindDepartments>();
-        display_engine = depends.on<IDisplayInformation>();
-        departments_in_the_department = new List<DepartmentLineItem>
+        public abstract class concern : Observes<IImplementAUserStory,
+            ViewAgain<TestReport>>
         {
-          new DepartmentLineItem()
-        };
 
-        request.setup(x => x.map<DepartmentLineItem>()).Return(selected_department);
-        departments.setup(x => x.get_departments_in(selected_department)).Return(departments_in_the_department);
-      };
+        }
 
-      Because b = () =>
-        sut.process(request);
+        public class TestReport
+        {
+        }
 
-      It display_departments_in_the_department = () =>
-        display_engine.received(x => x.display(departments_in_the_department));
+        public class when_run : concern
+        {
+            private Establish c = () =>
+            {
+                request = fake.an<IProvideDetailsAboutARequest>();
+                reports = depends.on<IGetAReportUsingARequest<TestReport>>();
+                display_engine = depends.on<IDisplayInformation>();
 
-      static IFindDepartments departments;
-      static IProvideDetailsAboutARequest request;
-      static IDisplayInformation display_engine;
-      static IEnumerable<DepartmentLineItem> departments_in_the_department;
-      static DepartmentLineItem selected_department;
+                reports.setup(x => x.get_report(request)).Return(the_report);
+            };
+
+            private Because b = () =>
+                sut.process(request);
+
+            private It display_the_report = () =>
+                display_engine.received(x => x.display(the_report));
+
+            private static IGetAReportUsingARequest<TestReport> reports;
+            private static IProvideDetailsAboutARequest request;
+            private static IDisplayInformation display_engine;
+            private static TestReport the_report;
+        }
     }
-  }
 }
