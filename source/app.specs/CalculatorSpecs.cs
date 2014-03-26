@@ -10,17 +10,24 @@ namespace app.specs
   {
     public abstract class concern : Observes<Calculator>
     {
+      Establish c = () =>
+      {
+        connection = depends.on<IDbConnection>();
+      };
+
+      public static IDbConnection connection;
     }
 
-    public class when_adding: concern
+    public class when_created : concern
+    {
+      It does_not_open_the_connection = () =>
+        connection.never_received(x => x.Open());
+    }
+
+    public class when_adding : concern
     {
       public class two_positive_numbers
       {
-        Establish c = () =>
-        {
-          connection = depends.on<IDbConnection>();   
-        };
-
         //Act
         Because b = () =>
           result = sut.add(2, 3);
@@ -33,9 +40,7 @@ namespace app.specs
         It returns_the_sum = () =>
           result.ShouldEqual(5);
 
-
         static int result;
-        static IDbConnection connection;
       }
 
       public class a_negative_and_a_positive
