@@ -4,6 +4,7 @@
  using Machine.Specifications;
  using developwithpassion.specifications.rhinomocks;
  using developwithpassion.specifications.extensions;
+ using Rhino.Mocks.Constraints;
 
 namespace app.specs.web
 {  
@@ -22,29 +23,30 @@ namespace app.specs.web
       Establish c = () =>
       {
         request = fake.an<IProvideDetailsAboutARequest>();
-        selected_department = new DepartmentLineItem();
-        departments = depends.on<IFindDepartments>();
         display_engine = depends.on<IDisplayInformation>();
-        departments_in_the_department = new List<DepartmentLineItem>
+        the_report = new List<ProductLineItem>
         {
-          new DepartmentLineItem()
-        };
+          new ProductLineItem()
+        }; 
+        reports = depends.on<IFindReports>();
 
-        request.setup(x => x.map<DepartmentLineItem>()).Return(selected_department);
-        departments.setup(x => x.get_departments_in(selected_department)).Return(departments_in_the_department);
+        reports.find_report<DepartmentLineItem, IEnumerable<ProductLineItem>>(input);
+        reports.setup(x => x.find_report<DepartmentLineItem, IEnumerable<ProductLineItem>>(input)).Return(the_report);
+
+        request.setup(x => x.map<DepartmentLineItem>()).Return(input);
       };
 
       Because b = () =>
         sut.process(request);
 
-      It display_departments_in_the_department = () =>
-        display_engine.received(x => x.display(departments_in_the_department));
+      It display_report = () =>
+        display_engine.received(x => x.display(the_report));
 
-      static IFindDepartments departments;
       static IProvideDetailsAboutARequest request;
       static IDisplayInformation display_engine;
-      static IEnumerable<DepartmentLineItem> departments_in_the_department;
-      static DepartmentLineItem selected_department;
+      static IFindReports reports;
+      static DepartmentLineItem input;
+      static IEnumerable<ProductLineItem> the_report;
     }
   }
 }

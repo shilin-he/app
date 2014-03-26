@@ -79,6 +79,7 @@
   <ItemGroup>
     <Compile Include="Calculator.cs" />
     <Compile Include="ICalculate.cs" />
+    <Compile Include="web\application\catalogbrowsing\IFindReports.cs" />
     <Compile Include="web\application\catalogbrowsing\ViewAgain.cs" />
     <Compile Include="web\application\catalogbrowsing\IFindProducts.cs" />
     <Compile Include="web\application\catalogbrowsing\DepartmentLineItem.cs" />
