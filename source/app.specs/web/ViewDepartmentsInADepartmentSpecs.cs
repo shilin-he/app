@@ -17,19 +17,21 @@ namespace app.specs.web
     }
 
    
-    public class when_process : concern
+    public class when_run : concern
     {
       Establish c = () =>
       {
         request = fake.an<IProvideDetailsAboutARequest>();
-        the_department = new DepartmentLineItem();
+        selected_department = new DepartmentLineItem();
         departments = depends.on<IFindDepartments>();
         display_engine = depends.on<IDisplayInformation>();
         departments_in_the_department = new List<DepartmentLineItem>
         {
           new DepartmentLineItem()
         };
-        departments.setup(x => x.get_departments_in(the_department)).Return(departments_in_the_department);
+
+        request.setup(x => x.map<DepartmentLineItem>()).Return(selected_department);
+        departments.setup(x => x.get_departments_in(selected_department)).Return(departments_in_the_department);
       };
 
       Because b = () =>
@@ -42,7 +44,7 @@ namespace app.specs.web
       static IProvideDetailsAboutARequest request;
       static IDisplayInformation display_engine;
       static IEnumerable<DepartmentLineItem> departments_in_the_department;
-      static DepartmentLineItem the_department;
+      static DepartmentLineItem selected_department;
     }
   }
 }

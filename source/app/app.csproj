@@ -84,6 +84,16 @@
     <Compile Include="web\application\catalogbrowsing\stubs\StubDepartments.cs" />
     <Compile Include="web\application\catalogbrowsing\ViewDepartmentsInADepartment.cs" />
     <Compile Include="web\application\catalogbrowsing\ViewTheMainDepartmentsInTheStore.cs" />
+    <Compile Include="web\core\aspnet\ICreateAView.cs" />
+    <Compile Include="web\core\aspnet\ICreateHandlers.cs" />
+    <Compile Include="web\core\aspnet\IDisplayA.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="web\core\aspnet\IFindPathsToViews .cs" />
+    <Compile Include="web\core\aspnet\IGetTheCurrentlyRunningContext.cs" />
+    <Compile Include="web\core\aspnet\ReportViewFactory.cs" />
+    <Compile Include="web\core\aspnet\stubs\StubViewPathRegistry.cs" />
+    <Compile Include="web\core\aspnet\WebFormDisplayEngine.cs" />
     <Compile Include="web\core\CommandRegistry.cs" />
     <Compile Include="web\core\FrontController.cs" />
     <Compile Include="web\core\ICreateARequest.cs" />
@@ -96,7 +106,6 @@
     <Compile Include="web\core\IProcessWebRequests .cs" />
     <Compile Include="web\core\IProvideDetailsAboutARequest.cs" />
     <Compile Include="web\core\aspnet\RawHttpHandler.cs" />
-    <Compile Include="web\core\stubs\StubDisplayEngine.cs" />
     <Compile Include="web\core\stubs\StubRequestFactory.cs" />
     <Compile Include="web\core\stubs\StubSetOfCommands.cs" />
     <Compile Include="web\core\stubs\StubSpecialCaseHandler.cs" />

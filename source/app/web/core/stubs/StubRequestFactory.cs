@@ -1,4 +1,6 @@
-﻿using System.Web;
+﻿using System;
+using System.Web;
+using app.web.application.catalogbrowsing;
 
 namespace app.web.core.stubs
 {
@@ -11,6 +13,10 @@ namespace app.web.core.stubs
 
     class StubRequest : IProvideDetailsAboutARequest
     {
+      public InputModel map<InputModel>()
+      {
+        return Activator.CreateInstance<InputModel>();
+      }
     }
   }
 }

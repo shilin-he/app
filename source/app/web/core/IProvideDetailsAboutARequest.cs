@@ -2,6 +2,6 @@
 {
   public interface IProvideDetailsAboutARequest
   {
-     
+    InputModel map<InputModel>();
   }
 }
