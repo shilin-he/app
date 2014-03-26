@@ -79,6 +79,14 @@
   <ItemGroup>
     <Compile Include="Calculator.cs" />
     <Compile Include="ICalculate.cs" />
+    <Compile Include="web\core\CommandRegistry.cs" />
+    <Compile Include="web\core\FrontController.cs" />
+    <Compile Include="web\core\ICreateARequest.cs" />
+    <Compile Include="web\core\IFindCommandsToProcessRequests.cs" />
+    <Compile Include="web\core\IProcessOneRequest.cs" />
+    <Compile Include="web\core\IProcessWebRequests .cs" />
+    <Compile Include="web\core\IProvideDetailsAboutARequest.cs" />
+    <Compile Include="web\core\RawHttpHandler.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
