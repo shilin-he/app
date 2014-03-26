@@ -28,6 +28,13 @@ namespace app.specs
     {
       public class two_positive_numbers
       {
+        Establish c = () =>
+        {
+          command = fake.an<IDbCommand>();
+
+          connection.setup(x => x.CreateCommand()).Return(command);
+        };
+
         //Act
         Because b = () =>
           result = sut.add(2, 3);
@@ -36,10 +43,14 @@ namespace app.specs
         It opens_a_connection_to_the_database = () =>
           connection.received(x => x.Open());
 
+        It runs_a_query = () =>
+          command.received(x => x.ExecuteNonQuery());
+
         It returns_the_sum = () =>
           result.ShouldEqual(5);
 
         static int result;
+        static IDbCommand command;
       }
 
       public class a_negative_and_a_positive

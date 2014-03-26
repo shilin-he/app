@@ -14,11 +14,11 @@ namespace app
 
     public int add(int first, int second)
     {
-        if (first < 0 || second < 0)
-            throw new ArgumentException("I can't add negative numbers :(");
+      if (first < 0 || second < 0)
+        throw new ArgumentException("I can't add negative numbers :(");
 
       connection.Open();
-        return first + second;
+      return first + second;
     }
   }
 }
