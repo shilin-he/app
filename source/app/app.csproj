@@ -82,6 +82,7 @@
     <Compile Include="web\core\CommandRegistry.cs" />
     <Compile Include="web\core\FrontController.cs" />
     <Compile Include="web\core\ICreateARequest.cs" />
+    <Compile Include="web\core\ICreateASpecialCaseWhenACommandIsNotFound.cs" />
     <Compile Include="web\core\IFindCommandsToProcessRequests.cs" />
     <Compile Include="web\core\IProcessOneRequest.cs" />
     <Compile Include="web\core\IProcessWebRequests .cs" />
