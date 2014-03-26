@@ -9,5 +9,10 @@ namespace app.web.application.catalogbrowsing.stubs
     {
       return Enumerable.Range(1, 1000).Select(x => new DepartmentLineItem{name = x.ToString("Department 0")});
     }
+
+    public IEnumerable<DepartmentLineItem> get_departments_in(DepartmentLineItem the_department)
+    {
+      throw new System.NotImplementedException();
+    }
   }
 }

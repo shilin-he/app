@@ -118,6 +118,7 @@
     <Compile Include="web\CommandRegistrySpecs.cs" />
     <Compile Include="web\FrontControllerSpecs.cs" />
     <Compile Include="web\RawHttpHandlerSpecs.cs" />
+    <Compile Include="web\ViewDepartmentsInADepartmentSpecs.cs" />
     <Compile Include="web\ViewTheMainDepartmentsInTheStoreSpecs.cs" />
     <Compile Include="web\WebCommandSpecs.cs" />
   </ItemGroup>
