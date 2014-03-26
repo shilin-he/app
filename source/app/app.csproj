@@ -114,6 +114,7 @@
     <Compile Include="web\core\stubs\StubRequestFactory.cs" />
     <Compile Include="web\core\stubs\StubSetOfCommands.cs" />
     <Compile Include="web\core\stubs\StubSpecialCaseHandler.cs" />
+    <Compile Include="web\core\TimedFrontController.cs" />
     <Compile Include="web\core\WebCommand.cs" />
   </ItemGroup>
   <ItemGroup />
