@@ -125,7 +125,8 @@
   </Target>
   -->
   <PropertyGroup>
-    <PostBuildEvent>cd $(SolutionDir)
+    <PostBuildEvent>
+cd $(SolutionDir)
 rake copy_config_files</PostBuildEvent>
   </PropertyGroup>
 </Project>
