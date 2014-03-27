@@ -34,7 +34,7 @@ namespace app.specs.events
             command.CommandText = "delete * from customers";
             command.CommandType = CommandType.Text;
             command.ExecuteNonQuery();
-            command.CommandText = "insert into customers ('test_customer') values (custumer_name)";
+            command.CommandText = "insert into customers  (custumer_name) values ('test_customer')";
             command.ExecuteNonQuery();
           }
         }
