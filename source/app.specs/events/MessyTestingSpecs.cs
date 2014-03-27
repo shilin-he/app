@@ -1,6 +1,8 @@
-﻿using System.Configuration;
+﻿using System;
+using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
+using developwithpassion.specifications.extensions;
 using developwithpassion.specifications.rhinomocks;
 using Machine.Specifications;
 
@@ -17,7 +19,6 @@ namespace app.specs.events
     {
       public static void run()
       {
-        new MessyTesting().some_method();
       }
     }
 
@@ -25,39 +26,74 @@ namespace app.specs.events
     {
       Establish c = () =>
       {
-        var connection = new SqlConnection(ConfigurationManager.AppSettings["connection_string"]);
-        using (connection)
+        connection_string = "blah";
+        command = fake.an<IDbCommand>();
+        connection = fake.an<IDbConnection>();
+        reader = fake.an<IDataReader>();
+        table = new DataTable();
+        depends.on<Func<string,string>>(x => 
         {
-          connection.Open();
-          using (var command = connection.CreateCommand())
-          {
-            command.CommandText = "delete * from customers";
-            command.CommandType = CommandType.Text;
-            command.ExecuteNonQuery();
-            command.CommandText = "insert into customers  (custumer_name) values ('test_customer')";
-            command.ExecuteNonQuery();
-          }
-        }
+          x.ShouldEqual("connection_string");
+          return connection_string;
+        }) ;
+
+        depends.on<Func<IDataReader, DataTable>>(x =>
+        {
+          x.ShouldEqual(reader);
+          return table;
+        });
+
+        depends.on<Func<string, IDbConnection>>(x =>
+        {
+          used_connection_string_resolution = true;
+          x.ShouldEqual(connection_string);
+          return connection;
+        });
+
+        connection.setup(x => x.CreateCommand()).Return(command);
+        command.setup(x => x.ExecuteReader()).Return(reader);
       };
 
       Because b = () =>
         result = sut.some_method();
 
+      It configures_the_command_correctly = () =>
+      {
+        command.CommandText.ShouldEqual("SELECT * FROM Customers");
+        command.CommandType.ShouldEqual(CommandType.Text);
+      };
+
       It should_get_customers = () =>
       {
-        result.Rows.Count.ShouldEqual(1);
-        result.Rows[0]["customer_name"].ShouldEqual("test_customer");
+        result.ShouldEqual(table);
       };
 
       static DataTable result;
+      static string connection_string;
+      static IDbConnection connection;
+      static IDbCommand command;
+      static IDataReader reader;
+      static DataTable table;
+      static bool used_connection_string_resolution;
     }
   }
 
   public class MessyTesting
   {
+    Func<string, string> get_the_connection_string;
+    Func<string, IDbConnection> create_connection; 
+    Func<IDataReader, DataTable> load_table; 
+
+    public MessyTesting(Func<string, string> get_the_connection_string, Func<string, IDbConnection> create_connection, Func<IDataReader, DataTable> load_table)
+    {
+      this.get_the_connection_string = get_the_connection_string;
+      this.create_connection = create_connection;
+      this.load_table = load_table;
+    }
+
     public DataTable some_method()
     {
-      var connection = new SqlConnection(ConfigurationManager.AppSettings["connection_string"]);
+      var connection = create_connection(get_the_connection_string("connection_string"));
       using (connection)
       {
         connection.Open();
@@ -67,9 +103,7 @@ namespace app.specs.events
           command.CommandType = CommandType.Text;
           using (var reader = command.ExecuteReader())
           {
-            var results = new DataTable();
-            results.Load(reader);
-            return results;
+            return load_table(reader);
           }
         }
       }
