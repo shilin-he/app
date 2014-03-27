@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using app.web.core.stubs;
 
 namespace app.web.core
 {
@@ -9,7 +8,8 @@ namespace app.web.core
     IEnumerable<IProcessOneRequest> all_commands;
     ICreateASpecialCaseWhenACommandIsNotFound missing_command_factory;
 
-    public CommandRegistry(IEnumerable<IProcessOneRequest> all_commands, ICreateASpecialCaseWhenACommandIsNotFound missing_command_factory)
+    public CommandRegistry(IEnumerable<IProcessOneRequest> all_commands,
+      ICreateASpecialCaseWhenACommandIsNotFound missing_command_factory)
     {
       this.all_commands = all_commands;
       this.missing_command_factory = missing_command_factory;
