@@ -1,22 +1,10 @@
 ﻿using System;
+using app.utility.events;
 using developwithpassion.specifications.rhinomocks;
 using Machine.Specifications;
 
 namespace app.specs
 {
-  public delegate void CustomEvent<EventData>(object sender,
-    PlainEventArgs<EventData> args);
-
-  public class PlainEventArgs<EventData> : EventArgs
-  {
-    public EventData details { get; private set; }
-
-    public PlainEventArgs(EventData details)
-    {
-      this.details = details;
-    }
-  }
-
   public class AlarmDetails
   {
     public DateTime time_of_day { get; private set; }
