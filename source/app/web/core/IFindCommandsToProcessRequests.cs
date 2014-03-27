@@ -4,4 +4,5 @@
   {
     IProcessOneRequest get_command_that_can_process(IProvideDetailsAboutARequest request);
   }
+
 }

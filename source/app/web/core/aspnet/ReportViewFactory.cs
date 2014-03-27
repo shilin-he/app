@@ -1,6 +1,4 @@
 ﻿using System.Web;
-using System.Web.Compilation;
-using app.web.core.aspnet.stubs;
 
 namespace app.web.core.aspnet
 {
@@ -13,11 +11,6 @@ namespace app.web.core.aspnet
     {
       this.view_path_registry = view_path_registry;
       this.handler_factory = handler_factory;
-    }
-
-    public ReportViewFactory():this(new StubViewPathRegistry(),
-      BuildManager.CreateInstanceFromVirtualPath)
-    {
     }
 
     public IHttpHandler create_view_to_display<ReportModel>(ReportModel model)

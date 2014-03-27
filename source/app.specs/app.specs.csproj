@@ -114,6 +114,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CalculatorSpecs.cs" />
+    <Compile Include="AlarmClockSpecs.cs" />
+    <Compile Include="events\EventAggregatorSpecs.cs" />
     <Compile Include="utility\ObjectFactory.cs" />
     <Compile Include="web\CommandRegistrySpecs.cs" />
     <Compile Include="web\SecuredFeatureSpecs.cs" />

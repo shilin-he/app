@@ -1,21 +1,14 @@
-﻿using System.Web;
-
-namespace app.web.core.aspnet
+﻿namespace app.web.core.aspnet
 {
   public class WebFormDisplayEngine : IDisplayInformation
   {
     ICreateAView view_factory;
     IGetTheCurrentlyRunningContext current_context_resolution;
 
-
     public WebFormDisplayEngine(ICreateAView view_factory, IGetTheCurrentlyRunningContext current_context_resolution)
     {
       this.view_factory = view_factory;
       this.current_context_resolution = current_context_resolution;
-    }
-
-    public WebFormDisplayEngine():this(new ReportViewFactory(), () => HttpContext.Current)
-    {
     }
 
     public void display<DisplayModel>(DisplayModel model)

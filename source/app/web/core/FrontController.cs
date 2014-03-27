@@ -9,10 +9,6 @@
       this.command_registry = command_registry;
     }
 
-    public FrontController():this(new CommandRegistry())
-    {
-    }
-
     public void process(IProvideDetailsAboutARequest request)
     {
       var command = command_registry.get_command_that_can_process(request);

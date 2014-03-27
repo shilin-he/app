@@ -16,9 +16,7 @@ namespace app.web.core.stubs
 
     public IEnumerator<IProcessOneRequest> GetEnumerator()
     {
-      yield return create_view_command(new GetTheProductsInADepartment());
-      yield return create_view_command(new GetTheMainDepartments());
-      yield return create_view_command(new GetTheDepartmentsInADepartment());
+      throw new NotImplementedException();
     }
 
     IProcessOneRequest create_view_command<Report>(IGetAReportUsingARequest<Report> query)
@@ -28,13 +26,12 @@ namespace app.web.core.stubs
 
     static IImplementAUserStory create_feature<Report>(IGetAReportUsingARequest<Report> query)
     {
-      return decorate(new ViewReport<Report>(query));
+      throw new NotImplementedException();
     }
 
     static IImplementAUserStory decorate(IImplementAUserStory feature)
     {
       feature = new TimedFeature(new StubTimer(), feature, Console.WriteLine);
-
       return feature;
     }
 

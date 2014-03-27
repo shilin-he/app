@@ -79,10 +79,13 @@
   <ItemGroup>
     <Compile Include="Calculator.cs" />
     <Compile Include="ICalculate.cs" />
+    <Compile Include="utility\events\EventAggregator.cs" />
     <Compile Include="utility\ILogInformation.cs" />
     <Compile Include="utility\ITimeThings.cs" />
     <Compile Include="utility\IVerifyAConstraint.cs" />
     <Compile Include="utility\stubs\StubTimer.cs" />
+    <Compile Include="web\application\catalogbrowsing\CatalogBrowsingController.cs" />
+    <Compile Include="web\application\catalogbrowsing\IGetAReportFromAControllerInvocation.cs" />
     <Compile Include="web\application\catalogbrowsing\IGetAReportUsingARequest.cs" />
     <Compile Include="web\application\catalogbrowsing\stubs\GetTheDepartmentsInADepartment.cs" />
     <Compile Include="web\application\catalogbrowsing\stubs\GetTheMainDepartments.cs" />
