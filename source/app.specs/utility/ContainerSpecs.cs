@@ -5,23 +5,29 @@ using Machine.Specifications;
 
 namespace app.specs.utility
 {
-    [Subject(typeof (Container))]
-    public class ContainerSpecs
+  [Subject(typeof(Container))]
+  public class ContainerSpecs
+  {
+    public abstract class concern : Observes<IFetchDependencies,
+      Container>
     {
-        public abstract class concern : Observes<IFetchDependencies,
-            Container>
-        {
-        }
-
-        public class when_requesting_a_type : concern
-        {
-            public class that_is_known_by_the_resolver
-            {
-                private Because b = () =>
-                    sut.an<>()...;
-
-                private It should_return_an_object_of_that_type = () => 
-            }
-        }
     }
+
+    public class when_requesting_an_dependency : concern
+    {
+      public class and_it_has_the_factory_for_the_type
+      {
+        Because b = () =>
+          result = sut.an<SomeDependency>();
+
+        It return_the_instance_created_by_the_factory_for_the_type = () => 
+
+        static SomeDependency result;
+      }
+    }
+
+    public class SomeDependency
+    {
+    }
+  }
 }
