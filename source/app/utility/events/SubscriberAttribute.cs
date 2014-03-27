@@ -17,7 +17,7 @@ namespace app.utility.events
   {
     public string event_name { get; private set; }
 
-    public SubscriberAttribute(string event_name)
+    public PublisherAttribute(string event_name)
     {
       this.event_name = event_name;
     }
