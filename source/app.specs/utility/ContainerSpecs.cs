@@ -46,14 +46,15 @@ namespace app.specs.utility
         Establish c = () =>
         {
           inner_exception = new Exception();
+          created_exception = new Exception();
           factory = fake.an<ICreateOneDependency>();
           dependencies = depends.on<IFindFactoriesThatCanCreateDependencies>();
           dependencies.setup(x => x.get_factory_that_can_create(typeof(SomeDependency))).Return(factory);
-          depends.on<IHandleDependencyCreationErrors>((type, error) =>
+          depends.on<ICreateDependencyCreationErrors>((type, error) =>
           {
-            ran_handler = true;
             type.ShouldEqual(typeof(SomeDependency));
             error.ShouldEqual(inner_exception);
+            return created_exception;
           });
 
           factory.setup(x => x.create()).Throw(inner_exception);
@@ -62,13 +63,13 @@ namespace app.specs.utility
         Because b = () =>
           spec.catch_exception(() => sut.an<SomeDependency>());
 
-        It runs_the_exception_handler = () =>
-          ran_handler.ShouldBeTrue();
+        It throws_the_exception_created_by_the_creation_error_factory = () =>
+          spec.exception_thrown.ShouldEqual(created_exception);
 
         static IFindFactoriesThatCanCreateDependencies dependencies;
         static ICreateOneDependency factory;
         static Exception inner_exception;
-        static bool ran_handler;
+        static Exception created_exception;
       }
     }
     public class SomeDependency
