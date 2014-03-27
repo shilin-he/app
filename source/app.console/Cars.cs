@@ -2,7 +2,7 @@
 
 namespace app.console
 {
-  class Program
+  class Cars
   {
     public class Garage
     {
@@ -43,7 +43,7 @@ namespace app.console
       }
     }
 
-    static void Main(string[] args)
+    public static void run()
     {
       var broke_down = false;
       var garage1 = new Garage {name = "First Garage"};
