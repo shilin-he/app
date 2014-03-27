@@ -95,6 +95,7 @@
     <Compile Include="utility\ITimeThings.cs" />
     <Compile Include="utility\IVerifyAConstraint.cs" />
     <Compile Include="utility\stubs\StubTimer.cs" />
+    <Compile Include="utility\SyntaxSugar.cs" />
     <Compile Include="web\application\catalogbrowsing\CatalogBrowsingController.cs" />
     <Compile Include="web\application\catalogbrowsing\IGetAReportFromAControllerInvocation.cs" />
     <Compile Include="web\application\catalogbrowsing\IGetAReportUsingARequest.cs" />
