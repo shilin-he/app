@@ -1,8 +1,10 @@
 <%@ Application Language="C#" %>
+<%@ Import Namespace="app.tasks" %>
 <script runat="server">
 
-    void Application_Start(object sender, EventArgs e)
-    {
-    }
+  void Application_Start(object sender, EventArgs e)
+  {
+    Startup.the_application();
+  }
 
 </script>

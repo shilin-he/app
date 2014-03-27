@@ -91,6 +91,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Properties\" />
+    <Folder Include="tasks\" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
@@ -117,6 +118,7 @@
     <Compile Include="AlarmClockSpecs.cs" />
     <Compile Include="events\EventAggregatorSpecs.cs" />
     <Compile Include="events\MessyTestingSpecs.cs" />
+    <Compile Include="StartupSpecs.cs" />
     <Compile Include="testutility\ObjectFactory.cs" />
     <Compile Include="utility\ContainerSpecs.cs" />
     <Compile Include="utility\DependencyFactoriesSpecs.cs" />

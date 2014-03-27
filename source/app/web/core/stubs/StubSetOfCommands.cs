@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using app.utility.container;
 using app.utility.stubs;
 using app.web.application.catalogbrowsing;
 using app.web.application.catalogbrowsing.stubs;
@@ -16,7 +17,9 @@ namespace app.web.core.stubs
 
     public IEnumerator<IProcessOneRequest> GetEnumerator()
     {
-      throw new NotImplementedException();
+      yield return create_view_command(new GetTheMainDepartments());
+      yield return create_view_command(new GetTheDepartmentsInADepartment());
+      yield return create_view_command(new GetTheProductsInADepartment());
     }
 
     IProcessOneRequest create_view_command<Report>(IGetAReportUsingARequest<Report> query)
@@ -26,7 +29,7 @@ namespace app.web.core.stubs
 
     static IImplementAUserStory create_feature<Report>(IGetAReportUsingARequest<Report> query)
     {
-      throw new NotImplementedException();
+      return new ViewReport<Report>(Fetch.me.an<IDisplayInformation>(), query);
     }
 
     static IImplementAUserStory decorate(IImplementAUserStory feature)

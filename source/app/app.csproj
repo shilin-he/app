@@ -79,6 +79,8 @@
   <ItemGroup>
     <Compile Include="Calculator.cs" />
     <Compile Include="ICalculate.cs" />
+    <Compile Include="tasks\Startup.cs" />
+    <Compile Include="tasks\startup\StartupErrors.cs" />
     <Compile Include="utility\container\basic\Container.cs" />
     <Compile Include="utility\container\basic\DependencyFactories.cs" />
     <Compile Include="utility\container\basic\ICreateADependencyFactoryWhenItIsMissing.cs" />
