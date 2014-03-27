@@ -25,7 +25,7 @@ namespace app.specs.utility
       Because b = () =>
         result = Fetch.me;
 
-      It return_the_facade_resolved_through_the_resolution_mechanism = () =>
+      It returns_the_facade_resolved_through_the_resolution_mechanism = () =>
         result.ShouldEqual(container);
 
       static IFetchDependencies result;
