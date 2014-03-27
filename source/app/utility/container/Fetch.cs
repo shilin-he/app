@@ -11,7 +11,10 @@ namespace app.utility.container
 
     public static IFetchDependencies me
     {
-      get { throw new NotImplementedException(); }
+      get
+      {
+        return container_resolution();
+      }
     }
   }
 }
