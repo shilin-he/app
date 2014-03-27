@@ -29,13 +29,28 @@ namespace app.specs.utility
           factory.setup(x => x.create()).Return(dependency);
         };
 
-        Because b = () =>
-          result = sut.an<SomeDependency>();
+        public class using_generic_arguments
+        {
+          Because b = () =>
+            result = sut.an<SomeDependency>();
 
-        It returns_the_instance_created_by_the_factory_for_the_dependency = () =>
-          result.ShouldEqual(dependency);
+          It returns_the_instance_created_by_the_factory_for_the_dependency = () =>
+            result.ShouldEqual(dependency);
 
-        static SomeDependency result;
+          static SomeDependency result;
+        }
+
+        public class using_runtime_arguments
+        {
+          Because b = () =>
+            result = sut.an(typeof(SomeDependency));
+
+          It returns_the_instance_created_by_the_factory_for_the_dependency = () =>
+            result.ShouldEqual(dependency);
+
+          static object result;
+        }
+
         static IFindFactoriesThatCanCreateDependencies dependencies;
         static SomeDependency dependency;
         static ICreateOneDependency factory;
@@ -72,6 +87,7 @@ namespace app.specs.utility
         static Exception created_exception;
       }
     }
+
     public class SomeDependency
     {
     }
