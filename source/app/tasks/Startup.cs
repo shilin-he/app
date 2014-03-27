@@ -12,8 +12,18 @@ using app.web.core.stubs;
 
 namespace app.tasks
 {
+    public static class FactoriesExtensions
+    {
+        public static void Add<T>(this IDictionary<Type, ICreateOneDependency> factories, Func<object> item_to_add)
+        {
+            factories.Add(typeof(T), new SimpleDependencyFactory(item_to_add));
+        }
+    }
+
   public class Startup
   {
+
+
     public static void the_application()
     {
       IDictionary<Type, ICreateOneDependency> factories = new Dictionary<Type, ICreateOneDependency>();
@@ -21,34 +31,31 @@ namespace app.tasks
       IFetchDependencies container = new Container(factory_registry, StartupItems.Errors.dependency_creation_error);
       Fetch.container_resolution = () => container;
 
-      factories.Add(typeof(IEnumerable<IProcessOneRequest>),
-        new SimpleDependencyFactory(() => new StubSetOfCommands()));
+      factories.Add<IProcessOneRequest>(() => new StubSetOfCommands());
 
-      factories.Add(typeof(IFindPathsToViews),
-        new SimpleDependencyFactory(() => new StubViewPathRegistry()));
+      factories.Add<IFindPathsToViews>(() => new StubViewPathRegistry());
 
-      factories.Add(typeof(ICreateARequest),
-        new SimpleDependencyFactory(() => new StubRequestFactory()));
+      factories.Add<ICreateARequest>(() => new StubRequestFactory());
 
       ICreateHandlers views = BuildManager.CreateInstanceFromVirtualPath;
 
-      factories.Add(typeof(ICreateHandlers), new SimpleDependencyFactory(() => views));
+      factories.Add<ICreateHandlers>(new SimpleDependencyFactory(() => views));
 
-      factories.Add(typeof(ICreateAView), 
+      factories.Add<ICreateAView>( 
         new SimpleDependencyFactory(() => new ReportViewFactory(
         container.an<IFindPathsToViews>(), container.an<ICreateHandlers>())));
 
-      factories.Add(typeof(IDisplayInformation), new SimpleDependencyFactory(() => new WebFormDisplayEngine(
+      factories.Add<IDisplayInformation>(new SimpleDependencyFactory(() => new WebFormDisplayEngine(
         container.an<ICreateAView>(),container.an<IGetTheCurrentlyRunningContext>())));
 
       IGetTheCurrentlyRunningContext current = () => HttpContext.Current;
-      factories.Add(typeof(IGetTheCurrentlyRunningContext), new SimpleDependencyFactory(() => current));
+      factories.Add<IGetTheCurrentlyRunningContext>( new SimpleDependencyFactory(() => current));
 
-      factories.Add(typeof(IProcessWebRequests),
+      factories.Add<IProcessWebRequests>(
         new SimpleDependencyFactory(() => 
           new FrontController(container.an<IFindCommandsToProcessRequests>())));
 
-      factories.Add(typeof(IFindCommandsToProcessRequests), 
+      factories.Add<IFindCommandsToProcessRequests>(
         new SimpleDependencyFactory(() => 
           new CommandRegistry(container.an<IEnumerable<IProcessOneRequest>>(), StartupItems.Errors.command_not_found_for_request)));
     } 
