@@ -1,7 +1,5 @@
 ﻿using System;
-using System.Configuration;
 using System.Data;
-using System.Data.SqlClient;
 using developwithpassion.specifications.extensions;
 using developwithpassion.specifications.rhinomocks;
 using Machine.Specifications;
@@ -31,11 +29,11 @@ namespace app.specs.events
         connection = fake.an<IDbConnection>();
         reader = fake.an<IDataReader>();
         table = new DataTable();
-        depends.on<Func<string,string>>(x => 
+        depends.on<Func<string, string>>(x =>
         {
           x.ShouldEqual("connection_string");
           return connection_string;
-        }) ;
+        });
 
         depends.on<Func<IDataReader, DataTable>>(x =>
         {
@@ -81,10 +79,11 @@ namespace app.specs.events
   public class MessyTesting
   {
     Func<string, string> get_the_connection_string;
-    Func<string, IDbConnection> create_connection; 
-    Func<IDataReader, DataTable> load_table; 
+    Func<string, IDbConnection> create_connection;
+    Func<IDataReader, DataTable> load_table;
 
-    public MessyTesting(Func<string, string> get_the_connection_string, Func<string, IDbConnection> create_connection, Func<IDataReader, DataTable> load_table)
+    public MessyTesting(Func<string, string> get_the_connection_string, Func<string, IDbConnection> create_connection,
+      Func<IDataReader, DataTable> load_table)
     {
       this.get_the_connection_string = get_the_connection_string;
       this.create_connection = create_connection;
