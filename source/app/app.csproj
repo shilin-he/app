@@ -79,6 +79,10 @@
   <ItemGroup>
     <Compile Include="Calculator.cs" />
     <Compile Include="ICalculate.cs" />
+    <Compile Include="utility\ILogInformation.cs" />
+    <Compile Include="utility\ITimeThings.cs" />
+    <Compile Include="utility\IVerifyAConstraint.cs" />
+    <Compile Include="utility\stubs\StubTimer.cs" />
     <Compile Include="web\application\catalogbrowsing\IGetAReportUsingARequest.cs" />
     <Compile Include="web\application\catalogbrowsing\stubs\GetTheDepartmentsInADepartment.cs" />
     <Compile Include="web\application\catalogbrowsing\stubs\GetTheMainDepartments.cs" />
@@ -111,10 +115,12 @@
     <Compile Include="web\core\IProcessWebRequests .cs" />
     <Compile Include="web\core\IProvideDetailsAboutARequest.cs" />
     <Compile Include="web\core\aspnet\RawHttpHandler.cs" />
+    <Compile Include="web\core\SecuredFeature.cs" />
+    <Compile Include="web\core\stubs\DynamicDecoration.cs" />
     <Compile Include="web\core\stubs\StubRequestFactory.cs" />
     <Compile Include="web\core\stubs\StubSetOfCommands.cs" />
     <Compile Include="web\core\stubs\StubSpecialCaseHandler.cs" />
-    <Compile Include="web\core\TimedFrontController.cs" />
+    <Compile Include="web\core\TimedFeature.cs" />
     <Compile Include="web\core\WebCommand.cs" />
   </ItemGroup>
   <ItemGroup />

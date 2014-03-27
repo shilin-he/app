@@ -1,5 +1,7 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
+using app.utility.stubs;
 using app.web.application.catalogbrowsing;
 using app.web.application.catalogbrowsing.stubs;
 
@@ -21,7 +23,19 @@ namespace app.web.core.stubs
 
     IProcessOneRequest create_view_command<Report>(IGetAReportUsingARequest<Report> query)
     {
-      return new WebCommand(x => true, new ViewReport<Report>(query));
+      return new WebCommand(x => true, create_feature(query));
+    }
+
+    static IImplementAUserStory create_feature<Report>(IGetAReportUsingARequest<Report> query)
+    {
+      return decorate(new ViewReport<Report>(query));
+    }
+
+    static IImplementAUserStory decorate(IImplementAUserStory feature)
+    {
+      feature = new TimedFeature(new StubTimer(), feature, Console.WriteLine);
+
+      return feature;
     }
 
     IProcessOneRequest create_view_command<Report>(IRunAQuery<Report> query)
