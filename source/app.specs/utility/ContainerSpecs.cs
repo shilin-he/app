@@ -41,7 +41,7 @@ namespace app.specs.utility
         static ICreateOneDependency factory;
       }
 
-      public class and_the_factory_for_the_dependency_throws_an_error_on_creation
+      public class and_the_factory_for_the_dependency_throws_an_breakdown_on_creation
       {
         Establish c = () =>
         {
@@ -63,7 +63,7 @@ namespace app.specs.utility
         Because b = () =>
           spec.catch_exception(() => sut.an<SomeDependency>());
 
-        It throws_the_exception_created_by_the_creation_error_factory = () =>
+        It throws_the_breakdown_detail_created_by_the_creation_error_factory = () =>
           spec.exception_thrown.ShouldEqual(created_exception);
 
         static IFindFactoriesThatCanCreateDependencies dependencies;

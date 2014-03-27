@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading;
 
 namespace app.utility.container.basic
 {
@@ -15,15 +16,15 @@ namespace app.utility.container.basic
 
     public Dependency an<Dependency>()
     {
-      try
+      SyntaxSugar.blocks.run(() =>
       {
         var factory = factories.get_factory_that_can_create(typeof(Dependency));
         return (Dependency)factory.create();
-      }
-      catch (Exception e)
-      {
-        throw error_factory(typeof(Dependency), e);
-      }
+      })
+      .on_error(e => throw error_factory(typeof(Dependency), e))()
+      ;
+
+
     }
   }
 }
