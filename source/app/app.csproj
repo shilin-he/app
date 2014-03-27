@@ -51,6 +51,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="app">
+      <HintPath>..\app.web.ui\Bin\app.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.configuration" />
     <Reference Include="System.Core">
@@ -79,15 +82,26 @@
   <ItemGroup>
     <Compile Include="Calculator.cs" />
     <Compile Include="ICalculate.cs" />
+    <Compile Include="tasks\ConfiguringTheContainer.cs" />
+    <Compile Include="tasks\ConfiguringRoutes.cs" />
+    <Compile Include="tasks\IProvideStartupServices.cs" />
+    <Compile Include="tasks\IRunAStartupStep.cs" />
     <Compile Include="tasks\Startup.cs" />
+    <Compile Include="tasks\startup\ConfiguringFrontController.cs" />
     <Compile Include="tasks\startup\StartupErrors.cs" />
+    <Compile Include="utility\container\basic\AutomaticDependencyFactory.cs" />
     <Compile Include="utility\container\basic\Container.cs" />
     <Compile Include="utility\container\basic\DependencyFactories.cs" />
     <Compile Include="utility\container\basic\ICreateADependencyFactoryWhenItIsMissing.cs" />
     <Compile Include="utility\container\basic\ICreateOneDependency.cs" />
     <Compile Include="utility\container\basic\IFindFactoriesThatCanCreateDependencies.cs" />
     <Compile Include="utility\container\basic\ICreateDependencyCreationErrors.cs" />
+    <Compile Include="utility\container\basic\IGetTheConstructorToCreateAType.cs" />
+    <Compile Include="utility\container\basic\IManageTheLifecycleOfAComponent.cs" />
+    <Compile Include="utility\container\basic\LifeCycles.cs" />
+    <Compile Include="utility\container\basic\RegularLifeCycle.cs" />
     <Compile Include="utility\container\basic\SimpleDependencyFactory.cs" />
+    <Compile Include="utility\container\basic\SingletonLifeCycle.cs" />
     <Compile Include="utility\container\Fetch.cs" />
     <Compile Include="utility\container\IFetchDependencies.cs" />
     <Compile Include="utility\container\IResolveTheInitialContainer.cs" />
@@ -97,6 +111,7 @@
     <Compile Include="utility\events\PlainEventArgs.cs" />
     <Compile Include="utility\events\SubscriberAttribute.cs" />
     <Compile Include="utility\ILogInformation.cs" />
+    <Compile Include="utility\IRunATask.cs" />
     <Compile Include="utility\ITimeThings.cs" />
     <Compile Include="utility\IVerifyAConstraint.cs" />
     <Compile Include="utility\stubs\StubTimer.cs" />

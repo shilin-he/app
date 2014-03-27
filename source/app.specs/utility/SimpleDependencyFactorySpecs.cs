@@ -1,22 +1,19 @@
-﻿ using System;
- using System.Data.SqlClient;
- using app.utility.container.basic;
- using Machine.Specifications;
- using developwithpassion.specifications.rhinomocks;
- using developwithpassion.specifications.extensions;
+﻿using System;
+using System.Data.SqlClient;
+using app.utility.container.basic;
+using developwithpassion.specifications.rhinomocks;
+using Machine.Specifications;
 
 namespace app.specs.utility
-{  
-  [Subject(typeof(SimpleDependencyFactory))]  
+{
+  [Subject(typeof(SimpleDependencyFactory))]
   public class SimpleDependencyFactorySpecs
   {
     public abstract class concern : Observes<ICreateOneDependency,
       SimpleDependencyFactory>
     {
-        
     }
 
-   
     public class when_it_creates_a_dependency : concern
     {
       Establish c = () =>

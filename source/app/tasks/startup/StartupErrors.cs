@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using app.utility.container.basic;
 using app.web.core;
 
@@ -6,6 +7,11 @@ namespace app.tasks.startup
 {
   public class StartupItems
   {
+    public class Reflection
+    {
+      public static readonly IGetTheConstructorToCreateAType greediest_ctor = (type) =>
+        type.GetConstructors().OrderByDescending(x => x.GetParameters().Count()).First();
+    }
     public class Errors
     {
       public static ICreateADependencyFactoryWhenItIsMissing dependency_factory_missing = type_that_has_no_factory =>

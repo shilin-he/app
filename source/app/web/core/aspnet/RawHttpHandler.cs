@@ -28,7 +28,7 @@ namespace app.web.core.aspnet
 
     public bool IsReusable
     {
-      get { return true; }
+      get { return false; }
     }
   }
 }
