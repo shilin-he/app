@@ -79,6 +79,9 @@
   <ItemGroup>
     <Compile Include="Calculator.cs" />
     <Compile Include="ICalculate.cs" />
+    <Compile Include="utility\container\Fetch.cs" />
+    <Compile Include="utility\container\IFetchDependencies.cs" />
+    <Compile Include="utility\container\IResolveTheInitialContainer.cs" />
     <Compile Include="utility\events\CustomEvent.cs" />
     <Compile Include="utility\events\EventAggregator.cs" />
     <Compile Include="utility\events\IScourForListenersOnAType.cs" />

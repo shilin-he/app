@@ -2,7 +2,7 @@
 using System.IO;
 using System.Web;
 
-namespace app.specs.utility
+namespace app.specs.testutility
 {
   public class ObjectFactory
   {

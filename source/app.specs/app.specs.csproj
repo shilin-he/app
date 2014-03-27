@@ -117,7 +117,8 @@
     <Compile Include="AlarmClockSpecs.cs" />
     <Compile Include="events\EventAggregatorSpecs.cs" />
     <Compile Include="events\MessyTestingSpecs.cs" />
-    <Compile Include="utility\ObjectFactory.cs" />
+    <Compile Include="testutility\ObjectFactory.cs" />
+    <Compile Include="utility\FetchSpecs.cs" />
     <Compile Include="web\CommandRegistrySpecs.cs" />
     <Compile Include="web\SecuredFeatureSpecs.cs" />
     <Compile Include="web\TimedFeatureSpecs.cs" />
