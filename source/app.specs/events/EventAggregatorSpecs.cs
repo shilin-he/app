@@ -18,6 +18,35 @@ namespace app.specs.events
       public const string ring = "Ring";
     }
 
+    public class Rang
+    {
+      public bool ran { get; private set; }
+
+      public Rang(bool ran)
+      {
+        this.ran = ran;
+      }
+    }
+    public class NewAlarmClock
+    {
+      public event CustomEvent<Rang> ring = delegate { };
+
+      public void trigger_ring()
+      {
+        ring(this, new PlainEventArgs<Rang>(new Rang(true))); 
+      }
+    }
+
+    public class ListenerOne
+    {
+      public bool responded { get; private set; }
+
+      public void handle_ring(object sender, PlainEventArgs<Rang> details)
+      {
+        responded = true; 
+      } 
+    }
+
     public class when_an_event_handler_is_registered : concern
     {
       public class and_it_is_not_already_in_the_list_of_handlers
@@ -44,4 +73,5 @@ namespace app.specs.events
       }
     }
   }
+
 }
