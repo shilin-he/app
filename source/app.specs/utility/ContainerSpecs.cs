@@ -13,12 +13,12 @@ namespace app.specs.utility
     {
     }
 
-    public class when_observation_name : concern
+    public class when_get_an_instance_of_a_type : concern
     {
       Because b = () =>
         sut.an<>()
 
-      It first_observation = () => 
+      It returns_an_instance_of_the_type_with_all_its_dependencies_loaded = () => 
     }
   }
 }
