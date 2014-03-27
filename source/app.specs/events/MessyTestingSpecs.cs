@@ -23,6 +23,33 @@ namespace app.specs.events
 
     public class when_testing_the_difficult_to_test : concern
     {
+      Establish c = () =>
+      {
+        var connection = new SqlConnection(ConfigurationManager.AppSettings["connection_string"]);
+        using (connection)
+        {
+          connection.Open();
+          using (var command = connection.CreateCommand())
+          {
+            command.CommandText = "delete * from customers";
+            command.CommandType = CommandType.Text;
+            command.ExecuteNonQuery();
+            command.CommandText = "insert into customers ('test_customer') values (custumer_name)";
+            command.ExecuteNonQuery();
+          }
+        }
+      };
+
+      Because b = () =>
+        result = sut.some_method();
+
+      It should_get_customers = () =>
+      {
+        result.Rows.Count.ShouldEqual(1);
+        result.Rows[0]["customer_name"].ShouldEqual("test_customer");
+      };
+
+      static DataTable result;
     }
   }
 
