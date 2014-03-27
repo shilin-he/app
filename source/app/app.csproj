@@ -85,6 +85,7 @@
     <Compile Include="utility\container\basic\ICreateOneDependency.cs" />
     <Compile Include="utility\container\basic\IFindFactoriesThatCanCreateDependencies.cs" />
     <Compile Include="utility\container\basic\ICreateDependencyCreationErrors.cs" />
+    <Compile Include="utility\container\basic\SimpleDependencyFactory.cs" />
     <Compile Include="utility\container\Fetch.cs" />
     <Compile Include="utility\container\IFetchDependencies.cs" />
     <Compile Include="utility\container\IResolveTheInitialContainer.cs" />

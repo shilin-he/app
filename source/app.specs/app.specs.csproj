@@ -121,6 +121,7 @@
     <Compile Include="utility\ContainerSpecs.cs" />
     <Compile Include="utility\DependencyFactoriesSpecs.cs" />
     <Compile Include="utility\FetchSpecs.cs" />
+    <Compile Include="utility\SimpleDependencyFactorySpecs.cs" />
     <Compile Include="web\CommandRegistrySpecs.cs" />
     <Compile Include="web\SecuredFeatureSpecs.cs" />
     <Compile Include="web\TimedFeatureSpecs.cs" />
