@@ -81,6 +81,7 @@
     <Compile Include="ICalculate.cs" />
     <Compile Include="utility\events\CustomEvent.cs" />
     <Compile Include="utility\events\EventAggregator.cs" />
+    <Compile Include="utility\events\IScourForListenersOnAType.cs" />
     <Compile Include="utility\events\PlainEventArgs.cs" />
     <Compile Include="utility\events\SubscriberAttribute.cs" />
     <Compile Include="utility\ILogInformation.cs" />

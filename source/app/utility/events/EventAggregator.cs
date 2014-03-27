@@ -1,19 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Reflection;
 
 namespace app.utility.events
 {
   public class EventAggregator
   {
     IDictionary<string, IList<EventHandler>> handlers;
+    IScourForListenersOnAType handler_resolution;
 
-    public EventAggregator(IDictionary<string, IList<EventHandler>> handlers)
+    public EventAggregator(IDictionary<string, IList<EventHandler>> handlers, IScourForListenersOnAType handler_resolution)
     {
       this.handlers = handlers;
-    }
-
-    public EventAggregator():this(new Dictionary<string, IList<EventHandler>>())
-    {
+      this.handler_resolution = handler_resolution;
     }
 
     public void register_listener(string event_name, EventHandler handler)
@@ -25,7 +24,8 @@ namespace app.utility.events
 
     public void register_listener(object listener)
     {
-      throw new NotImplementedException();
+      var handlers = handler_resolution.get_event_handlers_on(listener);
+
     }
 
     public void register_publisher(object publisher)

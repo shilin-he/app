@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using app.utility.events;
+using developwithpassion.specifications.extensions;
 using developwithpassion.specifications.rhinomocks;
 using Machine.Specifications;
 
@@ -107,24 +108,24 @@ namespace app.specs.events
         static bool raised;
         static EventHandler our_handler;
       }
-      public class demo
+    }
+
+    public class when_an_listener_is_registered : concern
+    {
+      Establish c = () =>
       {
-        public static void run()
-        {
-          var listener = new ListenerOne();
-          var listener2 = new ListenerOne();
-          var clock = new NewAlarmClock();
-          var aggregator = new EventAggregator();
+        target = new object();
+        listener_scourer = depends.on<IScourForListenersOnAType>();
+      };
 
-          aggregator.register_listener(listener);
-          aggregator.register_listener(listener2);
-          aggregator.register_publisher(clock);
+      Because b = () =>
+        sut.register_listener(target);
 
+      It retrieves_all_of_the_applicable_listener_methods = () =>
+        listener_scourer.received(x => x.get_event_handlers_on(target));
 
-          clock.trigger_ring();
-        }
-
-      }
+      static IScourForListenersOnAType listener_scourer;
+      static object target;
     }
   }
 }
