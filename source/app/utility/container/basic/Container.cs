@@ -2,9 +2,16 @@
 {
   public class Container : IFetchDependencies
   {
+    ICreateDependencies dependency_factory;
+
+    public Container(ICreateDependencies dependency_factory)
+    {
+      this.dependency_factory = dependency_factory;
+    }
+
     public Dependency an<Dependency>()
     {
-      throw new System.NotImplementedException();
+      return dependency_factory.create<Dependency>();
     }
   }
 }
