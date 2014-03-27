@@ -80,6 +80,7 @@
     <Compile Include="Calculator.cs" />
     <Compile Include="ICalculate.cs" />
     <Compile Include="utility\container\basic\Container.cs" />
+    <Compile Include="utility\container\basic\ICreateDependencies.cs" />
     <Compile Include="utility\container\Fetch.cs" />
     <Compile Include="utility\container\IFetchDependencies.cs" />
     <Compile Include="utility\container\IResolveTheInitialContainer.cs" />

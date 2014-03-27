@@ -28,7 +28,7 @@ namespace app.specs.utility
         result = sut.an<SomeDependency>();
 
       It returns_the_instance_created_by_the_factory_for_the_type = () =>
-        result.ShouldEqual(depency);
+        result.ShouldEqual(depency) ;
 
       static SomeDependency result;
       static ICreateDependencies dependency_factory;
