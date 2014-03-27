@@ -32,5 +32,10 @@ namespace app.utility.container.basic
         throw error_factory(typeof(Dependency), e);
       }
     }
+
+    public object an(Type dependency_type)
+    {
+      throw new NotImplementedException();
+    }
   }
 }
