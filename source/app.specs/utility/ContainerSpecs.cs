@@ -63,7 +63,7 @@ namespace app.specs.utility
         Because b = () =>
           spec.catch_exception(() => sut.an<SomeDependency>());
 
-        It throws_the_breakdown_detail_created_by_the_creation_error_factory = () =>
+        It throws_the_breakdown_detail_created_by_the_creation_breakdown_factory = () =>
           spec.exception_thrown.ShouldEqual(created_exception);
 
         static IFindFactoriesThatCanCreateDependencies dependencies;
