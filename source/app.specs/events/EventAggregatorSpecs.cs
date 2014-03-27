@@ -18,6 +18,7 @@ namespace app.specs.events
       public const string ring = "Ring";
     }
 
+
     public class Rang
     {
       public bool ran { get; private set; }
@@ -27,13 +28,17 @@ namespace app.specs.events
         this.ran = ran;
       }
     }
+
     public class NewAlarmClock
     {
-      public event CustomEvent<Rang> ring = delegate { };
+      [Publisher(Events.ring)]
+      public event CustomEvent<Rang> ring = delegate
+      {
+      };
 
       public void trigger_ring()
       {
-        ring(this, new PlainEventArgs<Rang>(new Rang(true))); 
+        ring(this, new PlainEventArgs<Rang>(new Rang(true)));
       }
     }
 
@@ -41,10 +46,11 @@ namespace app.specs.events
     {
       public bool responded { get; private set; }
 
+      [Subscriber(Events.ring)]
       public void handle_ring(object sender, PlainEventArgs<Rang> details)
       {
-        responded = true; 
-      } 
+        responded = true;
+      }
     }
 
     public class when_an_event_handler_is_registered : concern
@@ -71,7 +77,27 @@ namespace app.specs.events
         static bool raised;
         static Action our_handler;
       }
+
+      public class demo
+      {
+        public static void run()
+        {
+          var listener = new ListenerOne();
+          var listener2 = new ListenerOne();
+          var clock = new NewAlarmClock();
+          var aggregator = new EventAggregator();
+
+          aggregator.register_listener(listener);
+          aggregator.register_listener(listener2);
+          aggregator.register_publisher(clock);
+
+
+          clock.trigger_ring();
+          listener.responded == true;
+          listener2.responded == true;
+        }
+
+      }
     }
   }
-
 }
