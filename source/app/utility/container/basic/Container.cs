@@ -22,21 +22,20 @@ namespace app.utility.container.basic
       /* }) */
       /* .on_error(e => throw error_factory(typeof(Dependency), e))() */
       /* ; */
-      try
-      {
-        var factory = factories.get_factory_that_can_create(typeof(Dependency));
-        return (Dependency)factory.create();
-      }
-      catch (Exception e)
-      {
-        throw error_factory(typeof(Dependency), e);
-      }
+      return (Dependency) an(typeof(Dependency));
     }
 
     public object an(Type dependency_type)
     {
+      try
+      {
         var factory = factories.get_factory_that_can_create(dependency_type);
         return factory.create();
+      }
+      catch (Exception e)
+      {
+        throw error_factory(dependency_type, e);
+      }
     }
   }
 }

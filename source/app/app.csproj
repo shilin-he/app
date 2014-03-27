@@ -80,6 +80,7 @@
     <Compile Include="Calculator.cs" />
     <Compile Include="ICalculate.cs" />
     <Compile Include="utility\container\basic\Container.cs" />
+    <Compile Include="utility\container\basic\DependencyFactories.cs" />
     <Compile Include="utility\container\basic\ICreateOneDependency.cs" />
     <Compile Include="utility\container\basic\IFindFactoriesThatCanCreateDependencies.cs" />
     <Compile Include="utility\container\basic\ICreateDependencyCreationErrors.cs" />

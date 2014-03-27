@@ -119,6 +119,7 @@
     <Compile Include="events\MessyTestingSpecs.cs" />
     <Compile Include="testutility\ObjectFactory.cs" />
     <Compile Include="utility\ContainerSpecs.cs" />
+    <Compile Include="utility\DependencyFactoriesSpecs.cs" />
     <Compile Include="utility\FetchSpecs.cs" />
     <Compile Include="web\CommandRegistrySpecs.cs" />
     <Compile Include="web\SecuredFeatureSpecs.cs" />

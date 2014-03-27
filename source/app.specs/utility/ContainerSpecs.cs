@@ -22,8 +22,8 @@ namespace app.specs.utility
         Establish c = () =>
         {
           dependency = new SomeDependency();
-          factory = fake.an<ICreateOneDependency>();
           dependencies = depends.on<IFindFactoriesThatCanCreateDependencies>();
+          factory = fake.an<ICreateOneDependency>();
           dependencies.setup(x => x.get_factory_that_can_create(typeof(SomeDependency))).Return(factory);
 
           factory.setup(x => x.create()).Return(dependency);
