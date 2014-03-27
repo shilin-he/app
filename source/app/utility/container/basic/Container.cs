@@ -35,7 +35,8 @@ namespace app.utility.container.basic
 
     public object an(Type dependency_type)
     {
-      throw new NotImplementedException();
+        var factory = factories.get_factory_that_can_create(dependency_type);
+        return factory.create();
     }
   }
 }
