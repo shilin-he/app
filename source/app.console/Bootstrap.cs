@@ -8,8 +8,8 @@ namespace app.console
     public static void Main(string[] args)
     {
       var listener = new NameListener();
-      var zip_listener = new ExtensionListener(".zip");
-      var dmg_listener = new ExtensionListener(".dmg");
+      var zip_listener = new ExtensionListener(".tmp");
+      var dmg_listener = new ExtensionListener(".exe");
 
       var total_size = 0L;
       FoundFile size_listener = (sender, eargs) =>
@@ -19,10 +19,13 @@ namespace app.console
 
       Finder.run(new SearchOptions
       {
-        path = @"Z:\tempfiles\downloads"
+//        path = @"Z:\tempfilestempfiles\downloads"
+        path = @"C:\temp"
       }, 
       listener.record_file_name,
-      size_listener
+      size_listener,
+      zip_listener.extension_file_name,
+      dmg_listener.extension_file_name
       );
 
       listener.dump();

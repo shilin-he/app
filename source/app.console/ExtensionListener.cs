@@ -12,6 +12,14 @@ namespace app.console
       this.extension = extension;
     }
 
+    public void extension_file_name(object sender, FileFoundArgs args)
+    {
+        if (args.file.Extension == extension)
+        {
+            number++;
+        }
+    }
+
     public void dump()
     {
       Console.Out.WriteLine("I found {0} files with the extension {1}", number, extension);
