@@ -1,5 +1,6 @@
 ﻿using System;
 using app.tasks;
+using app.tasks.startup;
 using app.utility;
 using developwithpassion.specifications.extensions;
 using developwithpassion.specifications.rhinomocks;
@@ -9,7 +10,7 @@ namespace app.specs.tasks
 {
   public class StepFactorySpecs
   {
-    public abstract class concern : Observes<ICreateAStartupStep, StepFactory>
+    public abstract class concern : Observes<ICreateAStartupStep, StartupStepFactory>
     {
     }
 
@@ -24,7 +25,7 @@ namespace app.specs.tasks
           parameters.ShouldContainOnly(startup_services);
           return new MyTestType(startup_services);
         };
-        spec.change(() => StepFactory.create_instance);
+        spec.change(() => StartupStepFactory.create_instance);
       };
 
       Because b = () =>

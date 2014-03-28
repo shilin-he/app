@@ -1,7 +1,7 @@
 ﻿
 using app.utility;
 
-namespace app.tasks
+namespace app.tasks.startup
 {
   public interface IRunAStartupStep : IRunATask
   {

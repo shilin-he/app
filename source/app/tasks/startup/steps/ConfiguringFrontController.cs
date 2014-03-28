@@ -1,13 +1,12 @@
 ﻿using System.Collections.Generic;
 using System.Web;
 using System.Web.Compilation;
-using app.utility.container.basic;
 using app.web.core;
 using app.web.core.aspnet;
 using app.web.core.aspnet.stubs;
 using app.web.core.stubs;
 
-namespace app.tasks.startup
+namespace app.tasks.startup.steps
 {
   public class ConfiguringFrontController : IRunAStartupStep
   {

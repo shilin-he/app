@@ -5,9 +5,9 @@ namespace app.utility.container.basic
 {
   public class AutomaticDependencyFactory : ICreateOneDependency
   {
-    IFetchDependencies container;
-    IGetTheConstructorToCreateAType constructor_selection_strategy;
-    Type type_to_create;
+    public IFetchDependencies container;
+    public IGetTheConstructorToCreateAType constructor_selection_strategy;
+    public Type type_to_create;
 
     public AutomaticDependencyFactory(IFetchDependencies container, IGetTheConstructorToCreateAType constructor_selection_strategy, Type type_to_create)
     {

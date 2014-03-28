@@ -8,7 +8,11 @@ namespace app.tasks.startup
 {
   public class StartupItems
   {
-    public class tasks
+    public class DependencyFactories
+    {
+      public static Func<Type, ICreateOneDependency> concrete_factory;
+    }
+    public class Tasks
     {
       public static readonly ICombineStartupSteps combine = TaskExtensions.combine_with;
     }

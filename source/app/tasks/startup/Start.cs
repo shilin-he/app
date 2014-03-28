@@ -1,11 +1,12 @@
-﻿namespace app.tasks
+﻿namespace app.tasks.startup
 {
   public class Start
   {
     public static ICreateAStartupChainFromAnInitialStep create_chain = (type) =>
     {
-      IProvideStartupServices services = null;
-      var step_factory = new StepFactory(services);
+      var builder = new DependencyFactoryBuilder(null);
+      var services = new StartupServices(builder);
+      var step_factory = new StartupStepFactory(services);
       var first_step = step_factory.create_step(type);
       return new StartupChainBuilder(first_step, step_factory);
     };

@@ -1,10 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using app.tasks.startup;
 using app.utility.container;
 using app.utility.container.basic;
 
-namespace app.tasks
+namespace app.tasks.startup.steps
 {
   public class ConfiguringTheContainer : IRunAStartupStep
   {

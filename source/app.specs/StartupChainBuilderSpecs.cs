@@ -1,5 +1,5 @@
 ﻿using System;
-using app.tasks;
+using app.tasks.startup;
 using app.utility;
 using developwithpassion.specifications.extensions;
 using developwithpassion.specifications.rhinomocks;
@@ -58,6 +58,7 @@ namespace app.specs
       static IRunATask first_step;
       static IRunAStartupStep second_step;
     }
+
     public class when_finishing_the_chain : concern
     {
       public class StepB : IRunAStartupStep

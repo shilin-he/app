@@ -1,11 +1,16 @@
-﻿using app.tasks.startup;
-using app.utility;
+﻿using app.utility;
 
-namespace app.tasks
+namespace app.tasks.startup
 {
+  public interface IDefineStartupChains
+  {
+    IDefineStartupChains followed_by<Step>() where Step : IRunAStartupStep;
+    void finish_with<Step>() where Step : IRunAStartupStep;
+  }
+
   public class StartupChainBuilder : IDefineStartupChains
   {
-    public static ICombineStartupSteps combine_steps = StartupItems.tasks.combine;
+    public static ICombineStartupSteps combine_steps = StartupItems.Tasks.combine;
 
     public IRunATask step { get; private set; }
     ICreateAStartupStep step_factory;
@@ -15,7 +20,6 @@ namespace app.tasks
       this.step = step;
       this.step_factory = step_factory;
     }
-
 
     public IDefineStartupChains followed_by<Step>() where Step : IRunAStartupStep
     {

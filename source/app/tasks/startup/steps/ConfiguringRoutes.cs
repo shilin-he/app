@@ -1,4 +1,4 @@
-﻿namespace app.tasks
+﻿namespace app.tasks.startup.steps
 {
   public class ConfiguringRoutes : IRunAStartupStep
   {

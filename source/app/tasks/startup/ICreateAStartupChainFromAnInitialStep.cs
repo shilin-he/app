@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace app.tasks
+namespace app.tasks.startup
 {
   public delegate IDefineStartupChains ICreateAStartupChainFromAnInitialStep(Type first_step);
 }
