@@ -2,7 +2,7 @@ configs ={
   :git => {
     :provider => 'github',
     :user => 'aglcmarch2014',
-    :remotes => %w/cmanners jreyes20 aglc-dennis mshogren mruvinskiy kanwu samankodithuwakku mhaagsma shilin-he/,
+    :remotes => %w/cmanners jreyes20 aglc-dennis mshogren edmikeca kanwu samankodithuwakku mhaagsma shilin-he/,
     :repo => 'app' 
   }
 }
