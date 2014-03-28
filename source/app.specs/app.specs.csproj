@@ -91,7 +91,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Properties\" />
-    <Folder Include="tasks\" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
@@ -123,6 +122,7 @@
     <Compile Include="StartupChainBuilderSpecs.cs" />
     <Compile Include="StartupSpecs.cs" />
     <Compile Include="StepRunnerSpecs.cs" />
+    <Compile Include="tasks\StepFactorySpecs.cs" />
     <Compile Include="testutility\ObjectFactory.cs" />
     <Compile Include="utility\AutomaticDependencyFactorySpecs.cs" />
     <Compile Include="utility\ContainerSpecs.cs" />

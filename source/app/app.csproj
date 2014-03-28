@@ -97,6 +97,7 @@
     <Compile Include="tasks\Startup.cs" />
     <Compile Include="tasks\startup\ConfiguringFrontController.cs" />
     <Compile Include="tasks\startup\StartupErrors.cs" />
+    <Compile Include="tasks\StepFactory.cs" />
     <Compile Include="tasks\StepRunner.cs" />
     <Compile Include="utility\ChainedTask.cs" />
     <Compile Include="utility\container\basic\AutomaticDependencyFactory.cs" />
