@@ -45,6 +45,7 @@ CodeFile="ProductBrowser.aspx.cs" MasterPageFile="App.master" %>
 									</tr>
 
 								</table>							
+  <asp:Button id="blah" runat="server"/>
 								    
 								
 							

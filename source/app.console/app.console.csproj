@@ -46,17 +46,18 @@
   <ItemGroup>
     <Compile Include="Bootstrap.cs" />
     <Compile Include="Cars.cs" />
+    <Compile Include="Delegates.cs" />
+    <Compile Include="ExtensionListener.cs" />
+    <Compile Include="FileFoundArgs.cs" />
     <Compile Include="Finder.cs" />
+    <Compile Include="FoundFile.cs" />
+    <Compile Include="NameListener.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\app.specs\app.specs.csproj">
-      <Project>{df3a63f9-8783-4fda-8a31-76667e114cef}</Project>
-      <Name>app.specs</Name>
-    </ProjectReference>
     <ProjectReference Include="..\app\app.csproj">
       <Project>{922ef2fe-820b-4ed5-9d64-7d716e135719}</Project>
       <Name>app</Name>
