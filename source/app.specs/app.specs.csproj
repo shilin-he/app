@@ -118,7 +118,10 @@
     <Compile Include="AlarmClockSpecs.cs" />
     <Compile Include="events\EventAggregatorSpecs.cs" />
     <Compile Include="events\MessyTestingSpecs.cs" />
+    <Compile Include="StartSpecs.cs" />
+    <Compile Include="StartStepsBuilderSpecs.cs" />
     <Compile Include="StartupSpecs.cs" />
+    <Compile Include="StepRunnerSpecs.cs" />
     <Compile Include="testutility\ObjectFactory.cs" />
     <Compile Include="utility\AutomaticDependencyFactorySpecs.cs" />
     <Compile Include="utility\ContainerSpecs.cs" />

@@ -84,11 +84,16 @@
     <Compile Include="ICalculate.cs" />
     <Compile Include="tasks\ConfiguringTheContainer.cs" />
     <Compile Include="tasks\ConfiguringRoutes.cs" />
+    <Compile Include="tasks\IBuildStartSteps.cs" />
+    <Compile Include="tasks\IGetAStartupStep.cs" />
     <Compile Include="tasks\IProvideStartupServices.cs" />
     <Compile Include="tasks\IRunAStartupStep.cs" />
+    <Compile Include="tasks\IRunSteps .cs" />
+    <Compile Include="tasks\StartStepsBuilder.cs" />
     <Compile Include="tasks\Startup.cs" />
     <Compile Include="tasks\startup\ConfiguringFrontController.cs" />
     <Compile Include="tasks\startup\StartupErrors.cs" />
+    <Compile Include="tasks\StepRunner.cs" />
     <Compile Include="utility\container\basic\AutomaticDependencyFactory.cs" />
     <Compile Include="utility\container\basic\Container.cs" />
     <Compile Include="utility\container\basic\DependencyFactories.cs" />
