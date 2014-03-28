@@ -8,7 +8,6 @@
 
     public void run()
     {
-      throw new System.NotImplementedException();
     }
   }
 }
