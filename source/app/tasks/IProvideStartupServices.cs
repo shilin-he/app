@@ -9,7 +9,7 @@ namespace app.tasks
     void register<Contract>(Contract instance);
   }
 
-  class ProvideStartupServices : IProvideStartupServices
+  public class StartupServices : IProvideStartupServices
   {
     public void register<Contract, Implementation>(IManageTheLifecycleOfAComponent life_cycle)
     {
