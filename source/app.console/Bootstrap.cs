@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 
 namespace app.console
 {
@@ -20,16 +19,16 @@ namespace app.console
       Finder.run(new SearchOptions
       {
         path = @"Z:\tempfiles\downloads"
-      }, 
-      listener.record_file_name,
-      size_listener
-      );
+      },
+        listener.record_file_name,
+        size_listener
+        );
 
       listener.dump();
       zip_listener.dump();
       dmg_listener.dump();
 
-      Console.Out.WriteLine("Total size of all files is: {0}mb", total_size / 1024);
-    } 
+      Console.Out.WriteLine("Total size of all files is: {0}mb", total_size/1024);
+    }
   }
 }
