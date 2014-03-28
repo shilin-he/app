@@ -20,7 +20,7 @@ namespace app.tasks.startup
 
     public void run()
     {
-      services.register<IProcessWebRequests, FrontController>(LifeCycles.Singleton);
+      services.register<IProcessWebRequests, FrontController>();
       services.register<IFindCommandsToProcessRequests, CommandRegistry>();
       services.register<IEnumerable<IProcessOneRequest>, StubSetOfCommands>();
       services.register<IDisplayInformation, WebFormDisplayEngine>();
