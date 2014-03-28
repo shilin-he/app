@@ -87,6 +87,7 @@
     <Compile Include="tasks\ICombineStartupSteps .cs" />
     <Compile Include="tasks\ICreateAStartupChainFromAnInitialStep.cs" />
     <Compile Include="tasks\ICreateAStartupStep.cs" />
+    <Compile Include="tasks\ICreateSteps.cs" />
     <Compile Include="tasks\IDefineStartupChains.cs" />
     <Compile Include="tasks\IGetAStartupStep.cs" />
     <Compile Include="tasks\IProvideStartupServices.cs" />

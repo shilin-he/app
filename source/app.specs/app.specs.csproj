@@ -122,6 +122,7 @@
     <Compile Include="StartupChainBuilderSpecs.cs" />
     <Compile Include="StartupSpecs.cs" />
     <Compile Include="StepRunnerSpecs.cs" />
+    <Compile Include="tasks\StartupItemsSpecs.cs" />
     <Compile Include="tasks\StepFactorySpecs.cs" />
     <Compile Include="testutility\ObjectFactory.cs" />
     <Compile Include="utility\AutomaticDependencyFactorySpecs.cs" />
