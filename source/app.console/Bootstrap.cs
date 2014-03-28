@@ -10,6 +10,7 @@ namespace app.console
       var listener = new NameListener();
       var zip_listener = new ExtensionListener(".tmp");
       var dmg_listener = new ExtensionListener(".exe");
+        var pattern = new PatternListener("Set");
 
       var total_size = 0L;
       FoundFile size_listener = (sender, eargs) =>
@@ -25,12 +26,14 @@ namespace app.console
       listener.record_file_name,
       size_listener,
       zip_listener.extension_file_name,
-      dmg_listener.extension_file_name
+      dmg_listener.extension_file_name,
+      pattern.pattern_file_name
       );
 
       listener.dump();
       zip_listener.dump();
       dmg_listener.dump();
+      pattern.dump();
 
       Console.Out.WriteLine("Total size of all files is: {0}mb", total_size / 1024);
     } 

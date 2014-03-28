@@ -52,6 +52,7 @@
     <Compile Include="Finder.cs" />
     <Compile Include="FoundFile.cs" />
     <Compile Include="NameListener.cs" />
+    <Compile Include="PatternListener.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
