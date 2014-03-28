@@ -33,10 +33,9 @@ namespace app.specs.tasks
           name = "John Doe",
           age = 42
         };
-        target = new CustomerLineItem()
+        target = new CustomerLineItem();
       };
 
-      It first_observation = () => 
 
       static Customer source;
       static CustomerLineItem target;

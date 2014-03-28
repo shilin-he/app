@@ -92,7 +92,7 @@
     <Compile Include="tasks\startup\IRunAStartupStep.cs" />
     <Compile Include="tasks\startup\IRunSteps .cs" />
     <Compile Include="tasks\startup\Start.cs" />
-    <Compile Include="tasks\Startup.cs" />
+    <Compile Include="tasks\StartApplication.cs" />
     <Compile Include="tasks\startup\steps\ConfiguringFrontController.cs" />
     <Compile Include="tasks\startup\StartupItems.cs" />
     <Compile Include="utility\ChainedTask.cs" />

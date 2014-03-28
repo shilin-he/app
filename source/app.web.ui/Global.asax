@@ -4,7 +4,7 @@
 
   void Application_Start(object sender, EventArgs e)
   {
-    Startup.the_application();
+    StartApplication.run();
   }
 
 </script>

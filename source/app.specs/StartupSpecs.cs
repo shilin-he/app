@@ -8,7 +8,7 @@ using developwithpassion.specifications.extensions;
 
 namespace app.specs
 {
-  [Subject(typeof(Startup))]
+  [Subject(typeof(StartApplication))]
   public class StartupSpecs
   {
     public abstract class concern : Observes
@@ -19,7 +19,7 @@ namespace app.specs
     public class when_its_starts_up_the_app : concern
     {
       Because b = () =>
-        Startup.the_application();
+        StartApplication.run();
 
       It all_key_services_should_be_available = () =>
       {
