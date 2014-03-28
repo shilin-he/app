@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq;
+using app.utility;
 using app.utility.container.basic;
 using app.web.core;
 
@@ -7,6 +8,11 @@ namespace app.tasks.startup
 {
   public class StartupItems
   {
+    public class tasks
+    {
+      public static readonly ICombineStartupSteps combine = TaskExtensions.combine_with;
+    }
+
     public class Reflection
     {
       public static readonly IGetTheConstructorToCreateAType greediest_ctor = (type) =>
