@@ -1,36 +1,48 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 using app.tasks;
 using app.tasks.startup;
-using Machine.Specifications;
 using developwithpassion.specifications.rhinomocks;
-using developwithpassion.specifications.extensions;
+using Machine.Specifications;
 
 namespace app.specs
 {
-
   [Subject(typeof(Start))]
   public class StartSpecs
   {
     public abstract class concern : Observes<Start>
     {
-
     }
 
-    public class when_start : concern
+    public class when_beginning_the_definition_of_a_startup_pipeline : concern
     {
-      Because b = () =>
+      Establish c = () =>
       {
-        startup_step_builder = Start.by<ConfiguringFrontController>();
-        result = new List<Type>(startup_step_builder.get_steps());
+        startup_step_builder = fake.an<IDefineStartupChains>();
+        ICreateAStartupChainFromAnInitialStep factory = (type) =>
+        {
+          type.ShouldEqual(typeof(MyCustomStep));
+          return startup_step_builder;
+        };
+        spec.change(() => Start.create_chain).to(factory);
       };
 
-      It adds_a_startup_step_to_the_startup_step_builder = () =>
-        result[0].ShouldEqual(typeof(ConfiguringFrontController));
+      Because b = () =>
+        result = Start.by<MyCustomStep>();
 
-      static IBuildStartSteps startup_step_builder;
-      static IList<Type> result;
+      It creates_a_startup_step_builder_using_the_initial_startup_step = () =>
+        result.ShouldEqual(startup_step_builder);
+
+      static IDefineStartupChains startup_step_builder;
+      static IDefineStartupChains result;
+    }
+
+    public class MyCustomStep : IRunAStartupStep
+    {
+      public void run()
+      {
+        throw new NotImplementedException();
+      }
     }
   }
 }
