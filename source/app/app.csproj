@@ -109,11 +109,7 @@
     <Compile Include="utility\container\basic\IFindFactoriesThatCanCreateDependencies.cs" />
     <Compile Include="utility\container\basic\ICreateDependencyCreationErrors.cs" />
     <Compile Include="utility\container\basic\IGetTheConstructorToCreateAType.cs" />
-    <Compile Include="utility\container\basic\IManageTheLifecycleOfAComponent.cs" />
-    <Compile Include="utility\container\basic\LifeCycles.cs" />
-    <Compile Include="utility\container\basic\RegularLifeCycle.cs" />
     <Compile Include="utility\container\basic\SimpleDependencyFactory.cs" />
-    <Compile Include="utility\container\basic\SingletonLifeCycle.cs" />
     <Compile Include="utility\container\Fetch.cs" />
     <Compile Include="utility\container\IFetchDependencies.cs" />
     <Compile Include="utility\container\IResolveTheInitialContainer.cs" />
