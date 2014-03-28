@@ -45,15 +45,17 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Bootstrap.cs" />
+    <Compile Include="filelisteners\Bootstrap.cs" />
     <Compile Include="Cars.cs" />
     <Compile Include="Delegates.cs" />
-    <Compile Include="ExtensionListener.cs" />
-    <Compile Include="FileFoundArgs.cs" />
-    <Compile Include="Finder.cs" />
-    <Compile Include="FoundFile.cs" />
-    <Compile Include="NameListener.cs" />
-    <Compile Include="PatternListener.cs" />
+    <Compile Include="filelisteners\ExtensionListener.cs" />
+    <Compile Include="filelisteners\FileFoundArgs.cs" />
+    <Compile Include="filelisteners\Finder.cs" />
+    <Compile Include="filelisteners\FoundFile.cs" />
+    <Compile Include="filelisteners\NameListener.cs" />
+    <Compile Include="filelisteners\PatternListener.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="searchengine\Bootstrap.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

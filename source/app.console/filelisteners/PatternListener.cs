@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace app.console
+namespace app.console.filelisteners
 {
     public class PatternListener
     {

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.IO;
 
-namespace app.console
+namespace app.console.filelisteners
 {
   public class FileFoundArgs : EventArgs
   {

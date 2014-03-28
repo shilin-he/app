@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace app.console
+namespace app.console.filelisteners
 {
   public class NameListener
   {
