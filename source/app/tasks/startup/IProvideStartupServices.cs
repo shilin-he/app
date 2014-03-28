@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using app.utility.container;
 using app.utility.container.basic;
 
 namespace app.tasks.startup
@@ -9,16 +10,19 @@ namespace app.tasks.startup
     void register<Contract, Implementation>() where Implementation : Contract;
     void register<Contract>(Contract instance);
     void register<Implementation>();
+    IFetchDependencies container { get; }
   }
 
   public class StartupServices : IProvideStartupServices
   {
     public ICreateDependencyFactories factories;
     public IDictionary<Type, ICreateOneDependency> services = new Dictionary<Type, ICreateOneDependency>();
+    public IFetchDependencies container { get; private set; }
 
-    public StartupServices(ICreateDependencyFactories factories)
+    public StartupServices(ICreateDependencyFactories factories, IFetchDependencies container)
     {
       this.factories = factories;
+      this.container = container;
     }
 
     void register<Contract>(ICreateOneDependency factory)

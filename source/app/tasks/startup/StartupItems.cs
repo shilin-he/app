@@ -1,6 +1,8 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using app.utility;
+using app.utility.container;
 using app.utility.container.basic;
 using app.web.core;
 
@@ -8,10 +10,6 @@ namespace app.tasks.startup
 {
   public class StartupItems
   {
-    public class DependencyFactories
-    {
-      public static Func<Type, ICreateOneDependency> concrete_factory;
-    }
     public class Tasks
     {
       public static readonly ICombineStartupSteps combine = TaskExtensions.combine_with;
@@ -48,6 +46,49 @@ namespace app.tasks.startup
       {
         throw new NotImplementedException("There is no command configured for the request");
       };
+    }
+
+    public class Containers
+    {
+      public class Basic
+      {
+        class LazyServices : IProvideStartupServices
+        {
+          IProvideStartupServices real
+          {
+            get
+            {
+              return Fetch.me.an<IProvideStartupServices>();
+            }
+          }
+
+          public void register<Contract, Implementation>() where Implementation : Contract
+          {
+            real.register<Contract, Implementation>();
+          }
+
+          public void register<Contract>(Contract instance)
+          {
+            real.register(instance);
+          }
+
+          public void register<Implementation>()
+          {
+            real.register<Implementation>();
+          }
+
+          public IFetchDependencies container
+          {
+            get { return real.container; }
+          }
+        }
+        public static ICreateAStartupChainFromAnInitialStep create_chain = (type) =>
+        {
+          var step_factory = new StartupStepFactory(new LazyServices());
+          var first_step = step_factory.create_step(type);
+          return new StartupChainBuilder(first_step, step_factory);
+        };
+      }
     }
   }
 }

@@ -1,5 +1,4 @@
 using app.tasks.startup;
-using app.tasks.startup.steps;
 
 namespace app.tasks
 {
@@ -7,9 +6,7 @@ namespace app.tasks
   {
     public static void the_application()
     {
-      Start.by<ConfiguringTheContainer>()
-           .followed_by<ConfiguringRoutes>()
-           .finish_with<ConfiguringFrontController>();
+      Start.by_running_all_steps_in("starup.steps");
     }
   }
 }

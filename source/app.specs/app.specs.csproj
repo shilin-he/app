@@ -123,6 +123,7 @@
     <Compile Include="StartupChainBuilderSpecs.cs" />
     <Compile Include="StartupServicesSpecs.cs" />
     <Compile Include="StartupSpecs.cs" />
+    <Compile Include="tasks\MappingSpecs.cs" />
     <Compile Include="tasks\StartupItemsSpecs.cs" />
     <Compile Include="tasks\StepFactorySpecs.cs" />
     <Compile Include="testutility\ObjectFactory.cs" />
